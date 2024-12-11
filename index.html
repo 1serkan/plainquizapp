@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Quiz</title>
     </head>
     <body>
@@ -34,39 +35,33 @@
         let button = document.querySelector("button");
         let step = 1;
         let doc = document;
-
-        // class questionObj {
-        //     constructor(id, q, a){
-        //         id = Number,
-        //         q = String,
-        //         a = String
-        //     }
-        // }
-
-        // let asd = new questionObj(1, "ad", "few");
+        let next = document.querySelector("next");
 
         let fragen = ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?"];
         let antworts = [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"]];
-        let rightChoices = [["Al-Chwarizmi"], ["6000"]];
+        let rightChoices = [["Al-Chwarizmi"], ["6000 Jahre"]];
 
         if(step == 1){
             frage.innerText = fragen[0];
+            for(let i = 0; i < antworts[0].length; i++){
+                createSomeP("antwort", i);
+            }
         }
-
 
         function createSomeP(x, i) {
             x = doc.createElement("p");
         
             x.innerText = antworts[0][i];
-            // x.setAttribute("id", "Antwort" + i);
-            x.setAttribute("id", "Antwort");
+            x.setAttribute("id", "Antwort" + i);
         
             x.addEventListener("click", () => {
 
-            if(x.textContent === rightChoices[0][0]){
-            console.log("Richtig");
+            if(x.textContent === rightChoices[0][0] && step == 1){
+                console.log("Richtig");
+                step++;
+                console.log(step);
             }else{
-            console.log("falsch");
+                console.log("falsch");
                 }
             })
 
@@ -75,9 +70,14 @@
             return x;
         }
 
-        for(let i = 0; i < antworts[0].length; i++){
-            createSomeP("antwort", i);
-        }
+        next.addEventListener("click", () => {
+            if(step == 2){
+                frage.innerText = fragen[1];
+                for(let i = 0; i < antworts[1].length; i++){
+                    doc.getElementById("Antwort" + [i]).innerText = antworts[1][i];
+                }
+            }
+        });
     </script>
     </body>
 </html>
