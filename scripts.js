@@ -43,18 +43,18 @@
             if(step == 2){
                 question.innerText = questions[1];
                 for(let i = 0; i < answer[1].length; i++){
-                    let anwortsss = doc.getElementById("Antwort" + [i]);
-                    anwortsss.innerText = answer[1][i];
-                    anwortsss.style.color = "black";
-                    anwortsss.style.border = "none";
+                    let q = doc.getElementById("Antwort" + [i]);
+                    q.innerText = answer[1][i];
+                    q.style.color = "black";
+                    q.style.border = "none";
                 }
             }else if(step == 3){
                 question.innerText = questions[2];
                 for(let i = 0; i < answer[1].length; i++){
-                    let anwortsss = doc.getElementById("Antwort" + [i]);
-                    anwortsss.innerText = answer[2][i];
-                    anwortsss.style.color = "black";
-                    anwortsss.style.border = "none";
+                    let q = doc.getElementById("Antwort" + [i]);
+                    q.innerText = answer[2][i];
+                    q.style.color = "black";
+                    q.style.border = "none";
                 }
             }
         });
