@@ -1,7 +1,6 @@
         let doc = document;
         let frage = doc.querySelector("frage");
         let antwortListe = doc.querySelector("antworten");
-        let button = doc.querySelector("button");
         let step = 1;
         let next = doc.querySelector("next");
 
