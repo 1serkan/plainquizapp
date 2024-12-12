@@ -15,25 +15,27 @@
             }
         }
 
+        function manager(x, i){
+            if(x.textContent === rightChoices[i]){
+                x.style.color = "#16A34A";
+                x.style.border = "1px solid #6EE7B7";
+                step++;
+            }
+        }
+
         function createSomeP(x, i) {
             x = doc.createElement("p");
             x.innerText = answer[0][i];
             x.setAttribute("id", "Antwort" + i);
             x.addEventListener("click", () => {
-            if(x.textContent === rightChoices[0] && step == 1){
-                x.style.color = "#16A34A";
-                x.style.border = "1px solid #6EE7B7";
-                step++;
-                console.log(step);
-            }else if(x.textContent === rightChoices[1] && step == 2){
-                console.log("Richtig");
-                step++;
-            }else if(x.textContent === rightChoices[2] && step == 3){
-                console.log("Richtig");
-                step++;
-            }else if(x.textContent === rightChoices[3] && step == 4){
-                console.log("Richtig");
-                step++;
+            if(step == 1){
+                manager(x, 0);
+            }else if(step == 2){
+                manager(x, 1);
+            }else if(step == 3){
+                manager(x, 2);
+            }else if(step == 4){
+                manager(x, 3);
             }else{
                 console.log("falsch");
                 }
@@ -42,25 +44,23 @@
             return x;
         }
 
+        function refreshPage(a){
+                question.innerText = questions[a];
+                for(let i = 0; i < answer[a].length; i++){
+                    let q = doc.getElementById("Antwort" + [i]);
+                    q.innerText = answer[a][i];
+                    q.style.color = "black";
+                    q.style.border = "none";
+                }
+        }
+
         next.addEventListener("click", () => {
             if(step == 2){
-                question.innerText = questions[1];
-                for(let i = 0; i < answer[1].length; i++){
-                    let q = doc.getElementById("Antwort" + [i]);
-                    q.innerText = answer[1][i];
-                    q.style.color = "black";
-                    q.style.border = "none";
-                }
+                refreshPage(1);
             }else if(step == 3){
-                question.innerText = questions[2];
-                for(let i = 0; i < answer[2].length; i++){
-                    let q = doc.getElementById("Antwort" + [i]);
-                    q.innerText = answer[2][i];
-                    q.style.color = "black";
-                    q.style.border = "none";
-                }
+                refreshPage(2);
             }else if(step == 4){
-            question.innerText = questions[3];
+                refreshPage(3);
             if(answer[3].length < answer[2].length){
                 let element = doc.getElementById("Antwort3");
                 element.remove();
