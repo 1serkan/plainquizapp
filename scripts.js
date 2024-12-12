@@ -15,7 +15,7 @@
             }
         }
 
-        function manager(x, i){
+        function checkSelected(x, i){
             if(x.textContent === rightChoices[i]){
                 x.style.color = "#16A34A";
                 x.style.border = "1px solid #6EE7B7";
@@ -31,20 +31,18 @@
             x.innerText = answer[0][i];
             x.setAttribute("id", "Antwort" + i);
             x.addEventListener("click", () => {
-            if(step == 1){
-                manager(x, 0);
-            }else if(step == 2){
-                manager(x, 1);
-            }else if(step == 3){
-                manager(x, 2);
-            }else if(step == 4){
-                manager(x, 3);
-            }})
+            switch(step){
+                case 1: checkSelected(x, 0); break;
+                case 2: checkSelected(x, 1); break;
+                case 3: checkSelected(x, 2); break;
+                case 4: checkSelected(x, 3); break;
+            }
+        })
             answers.appendChild(x);
             return x;
         }
 
-        function refreshPage(a){
+        function refreshContent(a){
                 question.innerText = questions[a];
                 for(let i = 0; i < answer[a].length; i++){
                     let q = doc.getElementById("Antwort" + [i]);
@@ -54,16 +52,25 @@
                 }
         }
 
+        function end(){
+            question.innerText = "Glückwunsch du hast den Test abgeschlossen!";
+            question.style.fontSize = "1rem";
+            next.remove();
+            answers.remove();
+        }
+
         next.addEventListener("click", () => {
             if(step == 2){
-                refreshPage(1);
+                refreshContent(1);
             }else if(step == 3){
-                refreshPage(2);
+                refreshContent(2);
             }else if(step == 4){
-                refreshPage(3);
+                refreshContent(3);
                 if(answer[3].length < answer[2].length){
                     let e = doc.getElementById("Antwort3");
                     e.remove();
                 }
+            }else if(step > rightChoices.length){
+                end();
             }
         });

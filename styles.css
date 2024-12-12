@@ -35,6 +35,7 @@ next:hover {
 }
 
 #box{
+    display: grid;
     padding: 1rem;
     border: 0.2rem solid #075985;
 }
