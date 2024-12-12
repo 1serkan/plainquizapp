@@ -20,6 +20,9 @@
                 x.style.color = "#16A34A";
                 x.style.border = "1px solid #6EE7B7";
                 step++;
+            }else {
+                x.style.color = "red";
+                x.style.border = "1px solid rgb(231, 110, 110)";
             }
         }
 
@@ -36,10 +39,7 @@
                 manager(x, 2);
             }else if(step == 4){
                 manager(x, 3);
-            }else{
-                console.log("falsch");
-                }
-            })
+            }})
             answers.appendChild(x);
             return x;
         }
@@ -61,15 +61,9 @@
                 refreshPage(2);
             }else if(step == 4){
                 refreshPage(3);
-            if(answer[3].length < answer[2].length){
-                let element = doc.getElementById("Antwort3");
-                element.remove();
+                if(answer[3].length < answer[2].length){
+                    let e = doc.getElementById("Antwort3");
+                    e.remove();
+                }
             }
-            for(let i = 0; i < answer[3].length; i++){
-                let q = doc.getElementById("Antwort" + [i]);
-                q.innerText = answer[3][i];
-                q.style.color = "black";
-                q.style.border = "none";
-            }
-        }
         });
