@@ -59,18 +59,18 @@
             answers.remove();
         }
 
+        function checkAnswerSize(asmallerThan, stIndex, ahigherThan, htIndex){
+            if(asmallerThan[stIndex].length < ahigherThan[htIndex].length){
+                let e = doc.getElementById("Antwort" + (ahigherThan[htIndex].length - 1));
+                e.remove();
+            }
+        }
+
         next.addEventListener("click", () => {
-            if(step == 2){
-                refreshContent(1);
-            }else if(step == 3){
-                refreshContent(2);
-            }else if(step == 4){
-                refreshContent(3);
-                if(answer[3].length < answer[2].length){
-                    let e = doc.getElementById("Antwort3");
-                    e.remove();
-                }
-            }else if(step > rightChoices.length){
-                end();
+            switch(step){
+                case 2: refreshContent(1); break;
+                case 3: refreshContent(2); break;
+                case 4: refreshContent(3); checkAnswerSize(answer, 3, answer, 2); break;
+                default: end();
             }
         });
