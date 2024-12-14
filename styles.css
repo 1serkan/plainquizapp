@@ -1,6 +1,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #F1F5F9;
+    margin: 0;
+    height: 0;
 }
 
 question{
@@ -8,7 +10,7 @@ question{
     display: inline-flex;
     font-size: 3rem;
     user-select: none;
-    width: 30rem;
+    width: 50vh;
 }
 
 next {
@@ -29,15 +31,19 @@ next:hover {
 }
 
 #container{
+    position: relative;
     display: grid;
-    margin: 10%;
+    margin: 10rem;
     justify-content: center;
+    bottom: 3vh;
 }
 
 #box{
     display: grid;
+    background-color: #e5e5e5;
     padding: 1rem;
     border: 0.2rem solid #075985;
+    border-radius: 0.9rem;
 }
 
 answer{
@@ -45,8 +51,25 @@ answer{
     user-select: none;
 }
 
+answer > p {
+    cursor: grabbing;
+}
+
 p{
     padding: 2%;
     font-size: 1.4rem;
     color: #262626;
+}
+
+message{
+    display: block;
+    margin: 5%;
+    border: 1px solid #075985;
+    padding: 2%;
+    background-color: #0369A1;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #d1d1d1;
+    user-select: none;
 }
