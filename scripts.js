@@ -7,6 +7,10 @@
         let step = 1;
         let isClicked = false;
 
+        const quiz = {
+
+        }
+
         let questions = ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?", "Welcher Fluss hat am meisten Wasser auf der Welt?", "Wo im menschlichen Körper befindet sich der kleinste Knochen?"];
         let answer = [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]];
         let rightChoices = ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"];
@@ -19,46 +23,26 @@
         }
 
         function toggleColors(x, b, m, n, state){
-            let sborder;
-            let scolor;
-            let bcolor;
             let mheight = "14vh";
-            let mcolor;
-            let mbgcolor;
-            let mText;
-            let nText;
 
             if(window.innerWidth < 980 || screen.width < 500){
                 m.style.height = mheight;
             }
+
+            const styles = state === "success" 
+            ? {sborder: "1px solid #6EE7B7", scolor: "#16A34A", bcolor: "0.2rem solid #6EE7B7", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "Du hast die richtige Auswahl getroffen\n Klicke auf Weiter, um fortzufahren.", nText: "Weiter"}
+            : {sborder: "1px solid rgb(231, 110, 110)", scolor: "#a31616", bcolor: "0.2rem solid rgb(231, 110, 110)", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "Du hast die falsche Auswahl getroffen\n Klicke auf Wiederholen, um es erneut zu versuchen.", nText: "Wiederholen"};
             
-            if(state == "success"){
-                sborder = "1px solid #6EE7B7";
-                scolor = "#16A34A";
-                bcolor = "0.2rem solid #6EE7B7";
-                mcolor = "#6EE7B7";
-                mbgcolor = "rgb(60, 131, 81)";
-                mText = "Du hast die richtige Auswahl getroffen\n Klicke auf Weiter, um fortzufahren.";
-                nText = "Weiter";
-            }else{
-                sborder = "1px solid rgb(231, 110, 110)";
-                scolor = "#a31616";
-                bcolor = "0.2rem solid rgb(231, 110, 110)";
-                mcolor = "#e76e6e";
-                mbgcolor = "rgb(131, 60, 60)";
-                mText = "Du hast die falsche Auswahl getroffen\n Klicke auf Wiederholen, um es erneut zu versuchen.";
-                nText = "Wiederholen";
-            }
-            x.style.border = sborder;
-            x.style.color = scolor;
-            b.style.border = bcolor;
-            m.style.color = mcolor;
-            m.style.backgroundColor = mbgcolor;
-            m.style.border = sborder;
-            m.innerText = mText;
-            n.style.backgroundColor = mbgcolor;
-            n.style.border = sborder;
-            n.innerText = nText;
+            x.style.border = styles.sborder;
+            x.style.color = styles.scolor;
+            b.style.border = styles.bcolor;
+            m.style.color = styles.mcolor;
+            m.style.backgroundColor = styles.mbgcolor;
+            m.style.border = styles.sborder;
+            m.innerText = styles.mText;
+            n.style.backgroundColor = styles.mbgcolor;
+            n.style.border = styles.sborder;
+            n.innerText = styles.nText;
         }
 
         function checkSelected(x, i){
