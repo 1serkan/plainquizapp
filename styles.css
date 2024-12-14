@@ -73,3 +73,43 @@ message{
     color: #d1d1d1;
     user-select: none;
 }
+
+@media screen and (max-width: 980px){
+    #container{
+        display: block;
+        margin: 0;
+    }
+
+    #box{
+        position: absolute;
+        display: grid;
+        height: 108vh;
+        width: 49vh;
+        margin-top: 3vh;
+    }
+    question {
+        height: 0;
+        font-size: 4vh;
+    }
+    message {
+        height: 14vh;
+        font-size: 3vh;
+        margin-top: 9rem;
+    }
+
+    p{
+        font-size: 3vh;
+    }
+
+    next {
+        font-size: 5vh;
+        margin: 2vh;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    #container{
+        position: fixed;
+        display: contents;
+    }
+  }

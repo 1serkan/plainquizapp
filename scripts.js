@@ -22,6 +22,7 @@
             let sborder;
             let scolor;
             let bcolor;
+            // let mheight = "14vh";
             let mcolor;
             let mbgcolor;
             let mText;
@@ -47,6 +48,7 @@
             x.style.border = sborder;
             x.style.color = scolor;
             b.style.border = bcolor;
+            // m.style.height = mheight;
             m.style.color = mcolor;
             m.style.backgroundColor = mbgcolor;
             m.style.border = sborder;
