@@ -92,9 +92,10 @@ message{
         font-size: 4vh;
     }
     message {
-        height: 14vh;
+        position: relative;
+        top: 7vh;
+        height: 7vh;
         font-size: 3vh;
-        margin-top: 9rem;
     }
 
     p{
@@ -104,12 +105,5 @@ message{
     next {
         font-size: 5vh;
         margin: 2vh;
-    }
-  }
-
-@media screen and (max-width: 600px) {
-    #container{
-        position: fixed;
-        display: contents;
     }
   }
