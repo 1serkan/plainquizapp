@@ -11,20 +11,7 @@
             answer: [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]],
             rightChoices: ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"],
             endPageText: "Glückwunsch du hast den Test abgeschlossen!",
-            endPageFontSize: "2vh",
-
-            checkSelected (x, r) {
-                if(isClicked === false){ 
-                    if(x.textContent === this.rightChoices[r]){
-                        isClicked = true;
-                        toggleColors(x, box, message, next, "success");
-                        step++;
-                    }else{
-                        isClicked = true;
-                        toggleColors(x, box, message, next, "failure");
-                    }
-                }
-            }
+            endPageFontSize: "2vh"
         }
 
         function initialize(){
