@@ -10,6 +10,8 @@
             questions: ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?", "Welcher Fluss hat am meisten Wasser auf der Welt?", "Wo im menschlichen Körper befindet sich der kleinste Knochen?"],
             answer: [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]],
             rightChoices: ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"],
+            endPageText: "Glückwunsch du hast den Test abgeschlossen!",
+            endPageFontSize: "2vh",
 
             checkSelected (x, r) {
                 if(isClicked === false){ 
@@ -94,8 +96,8 @@
         }
 
         function end(){
-            question.innerText = "Glückwunsch du hast den Test abgeschlossen!";
-            question.style.fontSize = "1rem";
+            question.innerText = quiz.endPageText;
+            question.style.fontSize = quiz.endPageFontSize;
             message.remove();
             next.remove();
             answers.remove();
