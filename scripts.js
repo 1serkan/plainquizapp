@@ -86,8 +86,8 @@
             answerElement.setAttribute("id", `Antwort${i}`);
 
             if(!quiz.isClicked){
-                answerElement.addEventListener("mouseover", () => {!isClicked ? x.style.borderBottom = "1px solid #1E3A8A" : null});
-                answerElement.addEventListener("mouseleave", () => {!isClicked ? x.style.borderBottom = "1px solid #e5e5e5" : null})
+                answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});
+                answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #e5e5e5" : null})
                 
                 answerElement.addEventListener("click", () => checkSelected(answerElement))
         }
