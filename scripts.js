@@ -39,7 +39,7 @@
 
             quiz.answer[quiz.step]
             .forEach((a, i) => {
-                const answerElement = createSomeP(a, i);
+                const answerElement = createAnswerElement(a, i);
                 answers.appendChild(answerElement);
             });
         };
@@ -52,18 +52,18 @@
             }
 
             const styles = state === "success" 
-            ? {sborder: "1px solid #6EE7B7", scolor: "#16A34A", bcolor: "0.2rem solid #6EE7B7", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "Du hast die richtige Auswahl getroffen\n Klicke auf Weiter, um fortzufahren.", nText: "Weiter"}
-            : {sborder: "1px solid rgb(231, 110, 110)", scolor: "#a31616", bcolor: "0.2rem solid rgb(231, 110, 110)", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "Du hast die falsche Auswahl getroffen\n Klicke auf Wiederholen, um es erneut zu versuchen.", nText: "Wiederholen"};
+            ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "Du hast die richtige Auswahl getroffen\n Klicke auf Weiter, um fortzufahren.", nText: "Weiter"}
+            : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "Du hast die falsche Auswahl getroffen\n Klicke auf Wiederholen, um es erneut zu versuchen.", nText: "Wiederholen"};
             
-            x.style.border = styles.sborder;
+            x.style.border = `${styles.sborder} ${styles.mcolor}`;
             x.style.color = styles.scolor;
-            b.style.border = styles.bcolor;
+            b.style.border = `${styles.bcolor} ${styles.mcolor}`;
             m.style.color = styles.mcolor;
             m.style.backgroundColor = styles.mbgcolor;
-            m.style.border = styles.sborder;
+            m.style.border = `${styles.sborder} ${styles.mcolor}`;
             m.innerText = styles.mText;
             n.style.backgroundColor = styles.mbgcolor;
-            n.style.border = styles.sborder;
+            n.style.border = `${styles.sborder} ${styles.mcolor}`;
             n.innerText = styles.nText;
         }
 
@@ -71,8 +71,7 @@
             if(quiz.isClicked) return;
             quiz.isClicked = true;
 
-            const correctAnswer = quiz.rightChoices[quiz.step];
-            if(x.textContent === correctAnswer){
+            if(x.textContent === quiz.rightChoices[quiz.step]){
                 toggleColors(x, box, message, next, "success");
                 quiz.step++;
             }else {
@@ -80,7 +79,7 @@
                 }
         }
 
-        function createSomeP(x, i) {
+        function createAnswerElement(x, i) {
             const answerElement = doc.createElement("p");
             answerElement.innerText = x;
             answerElement.setAttribute("id", `Antwort${i}`);
