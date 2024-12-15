@@ -4,23 +4,43 @@
         const next = doc.querySelector("next");
         const message = doc.querySelector("message");
         const box = doc.getElementById("box");
-        let step = 1;
-        let isClicked = false;
-
         const quiz = {
+            step: 0,
+            isClicked: false,
+            questions: ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?", "Welcher Fluss hat am meisten Wasser auf der Welt?", "Wo im menschlichen Körper befindet sich der kleinste Knochen?"],
+            answer: [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]],
+            rightChoices: ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"],
 
-        }
-
-        let questions = ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?", "Welcher Fluss hat am meisten Wasser auf der Welt?", "Wo im menschlichen Körper befindet sich der kleinste Knochen?"];
-        let answer = [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]];
-        let rightChoices = ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"];
-
-        if(step == 1){
-            question.innerText = questions[0];
-            for(let i = 0; i < answer[0].length; i++){
-                createSomeP("answer", i);
+            checkSelected (x, r) {
+                if(isClicked === false){ 
+                    if(x.textContent === this.rightChoices[r]){
+                        isClicked = true;
+                        toggleColors(x, box, message, next, "success");
+                        step++;
+                    }else{
+                        isClicked = true;
+                        toggleColors(x, box, message, next, "failure");
+                    }
+                }
             }
         }
+
+        function initialize(){
+            quiz.step = 0;
+            quiz.isClicked = false;
+            loadQuestion();
+        }
+
+        function loadQuestion(){
+            question.innerText = quiz.questions[quiz.step];
+            answers.innerHTML = "";
+
+            quiz.answer[quiz.step]
+            .forEach((a, i) => {
+                const answerElement = createSomeP(a, i);
+                answers.appendChild(answerElement);
+            });
+        };
 
         function toggleColors(x, b, m, n, state){
             let mheight = "14vh";
@@ -45,47 +65,32 @@
             n.innerText = styles.nText;
         }
 
-        function checkSelected(x, i){
-            if(isClicked === false){
-            if(x.textContent === rightChoices[i]){
-                isClicked = true;
+        function checkSelected(x){
+            if(quiz.isClicked) return;
+            quiz.isClicked = true;
+
+            const correctAnswer = quiz.rightChoices[quiz.step];
+            if(x.textContent === correctAnswer){
                 toggleColors(x, box, message, next, "success");
-                step++;
+                quiz.step++;
             }else {
-                isClicked = true;
                 toggleColors(x, box, message, next, "failure");
                 }
-            }
         }
 
         function createSomeP(x, i) {
-            x = doc.createElement("p");
-            x.innerText = answer[0][i];
-            x.setAttribute("id", "Antwort" + i);
-            if(isClicked === false){
-                x.addEventListener("mouseover", () => {!isClicked ? x.style.borderBottom = "1px solid #1E3A8A" : null});
-                x.addEventListener("mouseleave", () => {!isClicked ? x.style.borderBottom = "1px solid #e5e5e5" : null})
-                x.addEventListener("click", () => {
-            switch(step){
-                case 1: checkSelected(x, 0); break;
-                case 2: checkSelected(x, 1); break;
-                case 3: checkSelected(x, 2); break;
-                case 4: checkSelected(x, 3); break;
-                }       
-            })
-        }
-            answers.appendChild(x);
-            return x;
+            const answerElement = doc.createElement("p");
+            answerElement.innerText = x;
+            answerElement.setAttribute("id", `Antwort${i}`);
+
+            if(!quiz.isClicked){
+                answerElement.addEventListener("mouseover", () => {!isClicked ? x.style.borderBottom = "1px solid #1E3A8A" : null});
+                answerElement.addEventListener("mouseleave", () => {!isClicked ? x.style.borderBottom = "1px solid #e5e5e5" : null})
+                
+                answerElement.addEventListener("click", () => checkSelected(answerElement))
         }
 
-        function refreshContent(a){
-            question.innerText = questions[a];
-            for(let i = 0; i < answer[a].length; i++){
-                let q = doc.getElementById("Antwort" + [i]);
-                q.innerText = answer[a][i];
-                q.style.color = "black";
-                q.style.border = "none";
-            }
+            return answerElement;
         }
 
         function end(){
@@ -96,23 +101,15 @@
             answers.remove();
         }
 
-        function checkAnswerSize(array, stIndex, htIndex){
-            try{
-                if(array[stIndex].length < array[htIndex].length){
-                    let e = doc.getElementById("Antwort" + (array[htIndex].length - 1));
-                    e.remove();
-                }
-            }catch(err){
-                console.log(err);
-            }
-        }
-
         next.addEventListener("click", () => {
-            switch(step){
-                case 1: refreshContent(0); isClicked = false; break;
-                case 2: refreshContent(1); isClicked = false; break;
-                case 3: refreshContent(2); isClicked = false; break;
-                case 4: refreshContent(3); checkAnswerSize(answer, 3, 2); isClicked = false; break;
-                default: end();
+            if(!quiz.isClicked) return;
+
+            quiz.isClicked = false;
+            if(quiz.step < quiz.questions.length) {
+                loadQuestion();
+            }else{
+                end();
             }
         });
+
+        initialize();
