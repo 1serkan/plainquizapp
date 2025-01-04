@@ -8,11 +8,14 @@
     <body>
         <div id="container">
             <div id="box">
-            <div id="languages"><button type="button" onclick="quiz.selectLanguage(this)">Java</button><button type="button" onclick="quiz.selectLanguage(this)">C++</button></div>
+            <div id="languages">
+                <button type="button" onclick="quiz.selectLanguage(this)">Java</button>
+                <button type="button" onclick="quiz.selectLanguage(this)">C++</button>
+            </div>
             <question></question>
             <message>Triff eine Auswahl aus folgenden Optionen</message>
             <answer></answer>
-            <next>Weiter</next>
+            <next style="display: none;">Weiter</next>
             </div>
         </div>
     <script src="./scripts.js"></script>

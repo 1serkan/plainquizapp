@@ -1,40 +1,188 @@
-{ 
+{
     "questions": [
-      {
-        "id": 0,
-        "language": 0, 
-        "question": "A file containing a class called MyClass should be saved as:",
-        "answers": ["MyClass.jv", "MyClass.java", "MyClass.js"],
-        "correctAnswer": "MyClass.java"
-      },
-      {
-        "id": 1,
-        "language": 0,
-        "question": "True or False: Java is case-sensitive: 'MyClass' and 'myclass' has different meaning.",
-        "answers": ["True", "False"],
-        "correctAnswer": "True"
-      },
-      {
-        "id": 2,
-        "language": 1,
-        "question": "What is #include <iostream>?",
-        "answers": ["An Object", "A header file library", "A namespace", "A function"],
-        "correctAnswer": "A header file library"
-      },
-      {
-        "id": 3,
-        "language": 1,
-        "question": "True or False: C++ is case-sensitive: 'main' and 'Main' has different meaning.",
-        "answers": ["True", "False"],
-        "correctAnswer": "True"
-      },
-      {
-        "id": 4,
-        "language": 1,
-        "question": "What is the output of the following code? \n #include <iostream> int main() {std::cout << \"Hello World!\"; return 0;}",
-        "answers": ["Error because it is missing using namespace std;", "Error because it uses std::", "Hello World!", "std"],
-        "correctAnswer": "Hello World!"
-      }
+        {
+            "answers": [
+                "MyClass.jv",
+                "MyClass.java",
+                "MyClass.js"
+            ],
+            "correctAnswer": "MyClass.java",
+            "id": 0,
+            "language": 0,
+            "question": "A file containing a class called MyClass should be saved as:"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 1,
+            "language": 0,
+            "question": "Java is case-sensitive: 'MyClass' and 'myclass' has different meaning."
+        },
+        {
+            "answers": [
+                "An Object",
+                "A header file library",
+                "A namespace",
+                "A function"
+            ],
+            "correctAnswer": "A header file library",
+            "id": 2,
+            "language": 1,
+            "question": "What is #include <iostream>?"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 3,
+            "language": 1,
+            "question": "C++ is case-sensitive: 'main' and 'Main' has different meaning."
+        },
+        {
+            "answers": [
+                "Error because it is missing using namespace std;",
+                "Error because it uses std::",
+                "Hello World!",
+                "std"
+            ],
+            "correctAnswer": "Hello World!",
+            "id": 4,
+            "language": 1,
+            "question": "What is the output of the following code? \\n #include <iostream> int main() {std::cout << \\\"Hello World!\\\"; return 0;}"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 5,
+            "language": 1,
+            "question": "In C++, each code statement must end with a semicolon (;)."
+        },
+        {
+            "answers": [
+                "Hello World!",
+                "cout",
+                "Error"
+            ],
+            "correctAnswer": "Error",
+            "id": 6,
+            "language": 1,
+            "question": "What is the output of the following code? cout << \"Hello World!\""
+        },
+        {
+            "answers": [
+                "Hello World!",
+                "cout",
+                "Error"
+            ],
+            "correctAnswer": "Hello World!",
+            "id": 7,
+            "language": 1,
+            "question": "What is the output of the following code? cout << \"Hello World!\";"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 8,
+            "language": 1,
+            "question": "Statements are executed, one by one, in the same order as they are written."
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 9,
+            "language": 0,
+            "question": "In Java, each code statement must end with a semicolon (;)."
+        },
+        {
+            "answers": [
+                "println()",
+                "printline()",
+                "printtext()",
+                "echo()"
+            ],
+            "correctAnswer": "println()",
+            "id": 10,
+            "language": 0,
+            "question": "Which method is often used to print text in Java?"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "True",
+            "id": 11,
+            "language": 0,
+            "question": "Text inside println() must be wrapped inside double quotes."
+        },
+        {
+            "answers": [
+                "The println() method adds a line break after printing, while print() does not",
+                "The print() method adds a line break after printing, while println() does not"
+            ],
+            "correctAnswer": "The println() method adds a line break after printing, while print() does not",
+            "id": 12,
+            "language": 0,
+            "question": "The difference between println() and print() is that:"
+        },
+        {
+            "answers": [
+                "3",
+                "6",
+                "9"
+            ],
+            "correctAnswer": "6",
+            "id": 13,
+            "language": 0,
+            "question": "What is the output of the following code? System.out.println(3 + 3);"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "False",
+            "id": 14,
+            "language": 0,
+            "question": "Numbers inside println() must be wrapped inside double quotes."
+        },
+        {
+            "answers": [
+                "2",
+                "25",
+                "10",
+                "5"
+            ],
+            "correctAnswer": "10",
+            "id": 15,
+            "language": 0,
+            "question": "What is the output of the following code? System.out.println(2 * 5);"
+        },
+        {
+            "answers": [
+                "To output text",
+                "To create text variables",
+                "To explain and document code",
+                "To print text and numbers with a simple line of code"
+            ],
+            "correctAnswer": "To explain and document code",
+            "id": 16,
+            "language": 0,
+            "question": "What is the meaning of comments in Java?"
+        }
     ]
-  }
-  
+}

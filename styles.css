@@ -9,7 +9,8 @@ body {
 question{
     color: #262626;
     display: inline-flex;
-    font-size: 3rem;
+    font-size: 2rem;
+    padding: 1%;
     width: 50vh;
 }
 
@@ -47,6 +48,7 @@ next:hover {
 
 answer{
     display: grid;
+    width: 50vh;
 }
 
 answer > p {

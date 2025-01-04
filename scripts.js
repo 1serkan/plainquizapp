@@ -18,6 +18,7 @@
             selectLanguage(input){
                 input.textContent == "Java" ? this.language = 0 : this.language = 1;
                 quiz.loadQuestion();
+                quiz.next.style.display = "flex";
             },
             initialize(){
                 quiz.language = 0;
@@ -140,7 +141,6 @@
                     quiz.answer[1].push(q.answers);
                     quiz.rightChoices[1].push(q.correctAnswer)
                     }
-                console.log(`Frage ${index + 1}: ${q.question}`);
             });
         })
         .catch(error => console.error('Fehler beim Laden der JSON:', error));
