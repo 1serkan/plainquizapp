@@ -3,13 +3,13 @@ body {
     background-color: #F1F5F9;
     margin: 0;
     height: 0;
+    user-select: none;
 }
 
 question{
     color: #262626;
     display: inline-flex;
     font-size: 3rem;
-    user-select: none;
     width: 50vh;
 }
 
@@ -20,7 +20,6 @@ next {
     background-color: #0E7490;
     padding: 5px;
     border-radius: 0.3rem;
-    user-select: none;
     font-size: 20px;
     place-self: end;
 }
@@ -48,7 +47,6 @@ next:hover {
 
 answer{
     display: grid;
-    user-select: none;
 }
 
 answer > p {
@@ -71,7 +69,23 @@ message{
     text-align: center;
     font-weight: bold;
     color: #d1d1d1;
-    user-select: none;
+}
+
+button{
+    width: 7vh;
+    height: 7vh;
+    font-size: 2vh;
+    border: none;
+    border: 1px solid #075985;
+    border-radius: 20px;
+    margin-right: 0.4vh;
+}
+
+button:hover {
+    background-color: #075985;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
 }
 
 @media screen and (max-width: 980px){

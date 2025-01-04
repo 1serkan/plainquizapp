@@ -1,19 +1,25 @@
         const doc = document;
-        const question = doc.querySelector("question");
-        const answers = doc.querySelector("answer");
-        const next = doc.querySelector("next");
-        const message = doc.querySelector("message");
-        const box = doc.getElementById("box");
         const quiz = {
+            question: doc.querySelector("question"),
+            answers: doc.querySelector("answer"),
+            next: doc.querySelector("next"),
+            message: doc.querySelector("message"),
+            box: doc.getElementById("box"),
             step: 0,
             isClicked: false,
-            questions: ["Wer hat Algebra erfunden?", "Wie alt ist die Türkische Sprache?", "Welcher Fluss hat am meisten Wasser auf der Welt?", "Wo im menschlichen Körper befindet sich der kleinste Knochen?"],
-            answer: [["Diophantos von Alexandria", "Al-Chwarizmi", "Archimedes", "Fermat"], ["100 Jahre", "3000 Jahre", "6000 Jahre", "600 Jahre"], ["Nil", "Rhein", "Kongo", "Amazonas"], ["Im Ohr", "Im Finger", "Im Zäh"]],
-            rightChoices: ["Al-Chwarizmi", "6000 Jahre", "Amazonas", "Im Ohr"],
+            type: 1, //type 1 = multiple choice - type 2 text
+            language: "",
+            questions: [["A file containing a class called MyClass should be saved as:", "True or False: Java is case-sensitive: \'MyClass\' and \'myclass\' has different meaning."], ["What is #include <iostream>?", "True or False: C++ is case-sensitive: 'main' and 'Main' has different meaning."]], //Index 0 sind Java Fragen
+            answer: [[["MyClass.jv", "MyClass.java", "MyClass.js"], ["True", "False"]], [["An Object", "A header file library", "A namespace", "A function"], ["True", "False"]]],
+            rightChoices: [["MyClass.java", "True"], ["A header file library", "True"]],
             endPageText: "Glückwunsch du hast den Test abgeschlossen!",
             endPageFontSize: "2vh",
-
+            selectLanguage(input){
+                input.textContent == "Java" ? this.language = "Java" : this.language = "C++";
+                quiz.loadQuestion();
+            },
             initialize(){
+                quiz.language = "";
                 quiz.step = 0;
                 quiz.isClicked = false;
                 quiz.loadQuestion();
@@ -22,29 +28,45 @@
                 if(quiz.isClicked) return;
                 quiz.isClicked = true;
 
-                if(answerElement.textContent === quiz.rightChoices[quiz.step]){
-                    quiz.toggleColors(answerElement, box, message, next, "success");
+                if(quiz.language == "Java"){
+                if(answerElement.textContent === quiz.rightChoices[0][quiz.step]){
+                    quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "success");
                     quiz.step++;
                 }else {
-                    quiz.toggleColors(answerElement, box, message, next, "failure");
+                    quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "failure");
+                }
+                }else{
+                    if(answerElement.textContent === quiz.rightChoices[1][quiz.step]){
+                        quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "success");
+                        quiz.step++;
+                    }else {
+                        quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "failure");
+                    }
                 }
             },
             loadQuestion(){
-                question.innerText = quiz.questions[quiz.step];
-                answers.innerHTML = "";
-    
-                quiz.answer[quiz.step]
-                .forEach((a, i) => {
-                    const answerElement = quiz.createAnswerElement(a, i);
-                    answers.appendChild(answerElement);
+                quiz.answers.innerHTML = "";
+                if(quiz.language == "Java"){
+                    quiz.question.innerText = quiz.questions[0][quiz.step];
+                    quiz.answer[0][quiz.step]
+                    .forEach((a, i) => {
+                        const answerElement = quiz.createAnswerElement(a, i);
+                        quiz.answers.appendChild(answerElement);
                 });
+                }else{
+                    quiz.question.innerText = quiz.questions[1][quiz.step];
+                    quiz.answer[1][quiz.step]
+                    .forEach((a, i) => {
+                        const answerElement = quiz.createAnswerElement(a, i);
+                        quiz.answers.appendChild(answerElement);
+                })}
             },
             end(){
-                question.innerText = quiz.endPageText;
-                question.style.fontSize = quiz.endPageFontSize;
-                message.remove();
-                next.remove();
-                answers.remove();
+                quiz.question.innerText = quiz.endPageText;
+                quiz.question.style.fontSize = quiz.endPageFontSize;
+                quiz.message.remove();
+                quiz.next.remove();
+                quiz.answers.remove();
             },
             toggleColors(x, b, m, n, state){
                 let mheight = "14vh";
@@ -84,11 +106,11 @@
             }
         }
 
-        next.addEventListener("click", () => {
+        quiz.next.addEventListener("click", () => {
             if(!quiz.isClicked) return;
 
             quiz.isClicked = false;
-            if(quiz.step < quiz.questions.length) {
+            if(quiz.step < quiz.questions[0].length) {
                 quiz.loadQuestion();
             }else{
                 quiz.end();
