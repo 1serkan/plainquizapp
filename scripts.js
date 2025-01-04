@@ -5,30 +5,30 @@
             next: doc.querySelector("next"),
             message: doc.querySelector("message"),
             box: doc.getElementById("box"),
+            languagesButton: doc.getElementById("languages"),
             step: 0,
             isClicked: false,
             type: 1, //type 1 = multiple choice - type 2 text
-            language: "",
-            questions: [["A file containing a class called MyClass should be saved as:", "True or False: Java is case-sensitive: \'MyClass\' and \'myclass\' has different meaning."], ["What is #include <iostream>?", "True or False: C++ is case-sensitive: 'main' and 'Main' has different meaning."]], //Index 0 sind Java Fragen
-            answer: [[["MyClass.jv", "MyClass.java", "MyClass.js"], ["True", "False"]], [["An Object", "A header file library", "A namespace", "A function"], ["True", "False"]]],
-            rightChoices: [["MyClass.java", "True"], ["A header file library", "True"]],
+            language: 0,
+            questions: [[], []], //Index 0 sind Java Fragen
+            answer: [[], []],
+            rightChoices: [[], []],
             endPageText: "Glückwunsch du hast den Test abgeschlossen!",
             endPageFontSize: "2vh",
             selectLanguage(input){
-                input.textContent == "Java" ? this.language = "Java" : this.language = "C++";
+                input.textContent == "Java" ? this.language = 0 : this.language = 1;
                 quiz.loadQuestion();
             },
             initialize(){
-                quiz.language = "";
+                quiz.language = 0;
                 quiz.step = 0;
                 quiz.isClicked = false;
-                quiz.loadQuestion();
             },
             checkSelected(answerElement){
                 if(quiz.isClicked) return;
                 quiz.isClicked = true;
 
-                if(quiz.language == "Java"){
+                if(quiz.language == 0){
                 if(answerElement.textContent === quiz.rightChoices[0][quiz.step]){
                     quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "success");
                     quiz.step++;
@@ -46,7 +46,7 @@
             },
             loadQuestion(){
                 quiz.answers.innerHTML = "";
-                if(quiz.language == "Java"){
+                if(quiz.language == 0){
                     quiz.question.innerText = quiz.questions[0][quiz.step];
                     quiz.answer[0][quiz.step]
                     .forEach((a, i) => {
@@ -64,9 +64,13 @@
             end(){
                 quiz.question.innerText = quiz.endPageText;
                 quiz.question.style.fontSize = quiz.endPageFontSize;
-                quiz.message.remove();
-                quiz.next.remove();
-                quiz.answers.remove();
+                quiz.del(this.message);
+                quiz.del(this.next);
+                quiz.del(this.answers);
+                quiz.del(this.languagesButton);
+            },
+            del(x){
+                x.remove();
             },
             toggleColors(x, b, m, n, state){
                 let mheight = "14vh";
@@ -110,11 +114,35 @@
             if(!quiz.isClicked) return;
 
             quiz.isClicked = false;
-            if(quiz.step < quiz.questions[0].length) {
+            if(quiz.step < quiz.questions[quiz.language].length) {
                 quiz.loadQuestion();
             }else{
                 quiz.end();
             }
         });
+
+        fetch('quiz.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data.questions);
+            data.questions.forEach((q, index) => {
+                if(q.language == 0){
+                    quiz.questions[0].push(q.question);
+                    quiz.answer[0].push(q.answers);
+                    quiz.rightChoices[0].push(q.correctAnswer)
+                }else if(q.language == 1){
+                    quiz.questions[1].push(q.question);
+                    quiz.answer[1].push(q.answers);
+                    quiz.rightChoices[1].push(q.correctAnswer)
+                    }
+                console.log(`Frage ${index + 1}: ${q.question}`);
+            });
+        })
+        .catch(error => console.error('Fehler beim Laden der JSON:', error));
 
         quiz.initialize();

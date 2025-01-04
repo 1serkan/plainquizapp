@@ -1,0 +1,40 @@
+{ 
+    "questions": [
+      {
+        "id": 0,
+        "language": 0, 
+        "question": "A file containing a class called MyClass should be saved as:",
+        "answers": ["MyClass.jv", "MyClass.java", "MyClass.js"],
+        "correctAnswer": "MyClass.java"
+      },
+      {
+        "id": 1,
+        "language": 0,
+        "question": "True or False: Java is case-sensitive: 'MyClass' and 'myclass' has different meaning.",
+        "answers": ["True", "False"],
+        "correctAnswer": "True"
+      },
+      {
+        "id": 2,
+        "language": 1,
+        "question": "What is #include <iostream>?",
+        "answers": ["An Object", "A header file library", "A namespace", "A function"],
+        "correctAnswer": "A header file library"
+      },
+      {
+        "id": 3,
+        "language": 1,
+        "question": "True or False: C++ is case-sensitive: 'main' and 'Main' has different meaning.",
+        "answers": ["True", "False"],
+        "correctAnswer": "True"
+      },
+      {
+        "id": 4,
+        "language": 1,
+        "question": "What is the output of the following code? \n #include <iostream> int main() {std::cout << \"Hello World!\"; return 0;}",
+        "answers": ["Error because it is missing using namespace std;", "Error because it uses std::", "Hello World!", "std"],
+        "correctAnswer": "Hello World!"
+      }
+    ]
+  }
+  
