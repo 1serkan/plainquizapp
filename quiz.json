@@ -9,7 +9,7 @@
             "correctAnswer": "MyClass.java",
             "id": 0,
             "language": 0,
-            "type" : 0,
+            "type" : 1,
             "question": "A file containing a class called MyClass should be saved as:"
         },
         {

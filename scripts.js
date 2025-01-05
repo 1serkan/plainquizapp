@@ -13,7 +13,7 @@
             questions: [[], [], []], //Index 0 sind Java Fragen
             answer: [[], [], []],
             rightChoices: [[], [], []],
-            endPageText: "Glückwunsch du hast den Test abgeschlossen!",
+            endPageText: "Congratulations, you have completed the test!",
             endPageFontSize: "2vh",
             selectLanguage(input){
                 input.textContent == "Java" ? this.language = 0 : (input.textContent == "C++") ? this.language = 1 : this.language = 2;
@@ -35,6 +35,7 @@
                 quiz.answers.innerHTML = "";
                 quiz.question.innerText = quiz.questions[quiz.language][quiz.step];
                 if(quiz.type[quiz.language][quiz.step] == 0){
+                    quiz.answers.style.display = "grid";
                     quiz.answer[quiz.language][quiz.step]
                     .forEach((a, i) => {
                         const answerElement = quiz.createAnswerElement(a, i);
@@ -54,7 +55,7 @@
                         if(x.target.value == quiz.rightChoices[quiz.language][quiz.step]){
                             quiz.toggleColors(inputElement, quiz.box, quiz.message, quiz.next, "success");
                             quiz.isClicked = true;
-                            inputElement.disabled = true;
+                            inputElement.style.pointerEvents = "none";
                             quiz.step++;
                             console.log(quiz.step);
                         }else {
@@ -87,8 +88,8 @@
                 }
 
                 const styles = state === "success" 
-                ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "Du hast die richtige Auswahl getroffen\n Klicke auf Weiter, um fortzufahren.", nText: "Weiter"}
-                : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "Du hast die falsche Auswahl getroffen\n Klicke auf Wiederholen, um es erneut zu versuchen.", nText: "Wiederholen"};
+                ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "You have made the correct selection\n Click Next to continue.", nText: "Next"}
+                : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "You have made the wrong selection\n Click on Retry to try again.", nText: "Retry"};
             
                 x.style.border = `${styles.sborder} ${styles.mcolor}`;
                 x.style.color = styles.scolor;
@@ -105,6 +106,7 @@
                     const answerElement = doc.createElement("p");
                     answerElement.innerText = x;
                     answerElement.setAttribute("id", `antwort`);
+                    (x.length) < 20 ? answerElement.style.width = `${x.length}rem` : answerElement.style.width = `20rem`;
     
                     if(!quiz.isClicked){
                         answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});
@@ -143,4 +145,4 @@
                 };
             });
         })
-        .catch(error => console.error('Fehler beim Laden der JSON:', error));
+        .catch(error => console.error('Error loading the JSON:', error));
