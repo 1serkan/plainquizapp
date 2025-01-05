@@ -20,58 +20,38 @@
                 quiz.loadQuestion();
                 quiz.next.style.display = "flex";
             },
-            initialize(){
-                quiz.language = 0;
-                quiz.step = 0;
-                quiz.isClicked = false;
-            },
             checkSelected(answerElement){
                 if(quiz.isClicked) return;
                 quiz.isClicked = true;
 
-                if(quiz.language == 0){
-                if(answerElement.textContent === quiz.rightChoices[0][quiz.step]){
+                if(answerElement.textContent === quiz.rightChoices[quiz.language][quiz.step]){
                     quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "success");
                     quiz.step++;
                 }else {
                     quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "failure");
                 }
-                }else{
-                    if(answerElement.textContent === quiz.rightChoices[1][quiz.step]){
-                        quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "success");
-                        quiz.step++;
-                    }else {
-                        quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "failure");
-                    }
-                }
             },
             loadQuestion(){
                 quiz.answers.innerHTML = "";
-                if(quiz.language == 0){
-                    quiz.question.innerText = quiz.questions[0][quiz.step];
-                    quiz.answer[0][quiz.step]
-                    .forEach((a, i) => {
-                        const answerElement = quiz.createAnswerElement(a, i);
-                        quiz.answers.appendChild(answerElement);
+                quiz.question.innerText = quiz.questions[quiz.language][quiz.step];
+                quiz.answer[quiz.language][quiz.step]
+                .forEach((a, i) => {
+                    const answerElement = quiz.createAnswerElement(a, i);
+                    quiz.answers.appendChild(answerElement);
                 });
-                }else{
-                    quiz.question.innerText = quiz.questions[1][quiz.step];
-                    quiz.answer[1][quiz.step]
-                    .forEach((a, i) => {
-                        const answerElement = quiz.createAnswerElement(a, i);
-                        quiz.answers.appendChild(answerElement);
-                })}
             },
             end(){
                 quiz.question.innerText = quiz.endPageText;
                 quiz.question.style.fontSize = quiz.endPageFontSize;
-                quiz.del(this.message);
-                quiz.del(this.next);
-                quiz.del(this.answers);
-                quiz.del(this.languagesButton);
+                this.message.remove();
+                this.next.remove();
+                this.answers.remove();
+                this.languagesButton.remove();
             },
-            del(x){
-                x.remove();
+            pushToArray(x, q){
+                quiz.questions[x].push(q.question); 
+                quiz.answer[x].push(q.answers); 
+                quiz.rightChoices[x].push(q.correctAnswer);
             },
             toggleColors(x, b, m, n, state){
                 let mheight = "14vh";
@@ -130,19 +110,11 @@
             return response.json();
         })
         .then(data => {
-            console.log(data.questions);
-            data.questions.forEach((q, index) => {
-                if(q.language == 0){
-                    quiz.questions[0].push(q.question);
-                    quiz.answer[0].push(q.answers);
-                    quiz.rightChoices[0].push(q.correctAnswer)
-                }else if(q.language == 1){
-                    quiz.questions[1].push(q.question);
-                    quiz.answer[1].push(q.answers);
-                    quiz.rightChoices[1].push(q.correctAnswer)
-                    }
+            data.questions.forEach((q) => {
+                switch(q.language){
+                    case 0: quiz.pushToArray(0, q); break;
+                    case 1: quiz.pushToArray(1, q); break;
+                };
             });
         })
         .catch(error => console.error('Fehler beim Laden der JSON:', error));
-
-        quiz.initialize();
