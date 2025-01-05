@@ -8,7 +8,7 @@
             languagesButton: doc.getElementById("languages"),
             step: 0,
             isClicked: false,
-            type: [[], [], []], //type 0 = multiple choice - type 1 text
+            type: [[], [], []],
             language: 0,
             questions: [[], [], []], //Index 0 sind Java Fragen
             answer: [[], [], []],
@@ -41,17 +41,28 @@
                         quiz.answers.appendChild(answerElement);
                     });
                 }else{
-                    console.log(quiz.rightChoices[quiz.language][quiz.step]);
                     quiz.answers.style.display = "flex";
-                    const offeneFrage = doc.createElement("input");
-                    const TextDaneben = doc.createElement("p");
-                    TextDaneben.innerText = quiz.answer[quiz.language][quiz.step][0];
-                    offeneFrage.setAttribute("id", "inputfield")
-                    offeneFrage.maxLength = quiz.rightChoices[quiz.language][quiz.step].length;
-                    offeneFrage.style.width = `${quiz.rightChoices[quiz.language][quiz.step].length - 1.8}vh`
-                    offeneFrage.style.fontSize = "100%";
-                    quiz.answers.appendChild(offeneFrage);
-                    quiz.answers.appendChild(TextDaneben);
+                    const inputElement = doc.createElement("input");
+                    const textNext = doc.createElement("p");
+                    textNext.innerText = quiz.answer[quiz.language][quiz.step][0];
+                    inputElement.setAttribute("id", "inputfield")
+                    inputElement.maxLength = quiz.rightChoices[quiz.language][quiz.step].length;
+                    inputElement.style.width = `${quiz.rightChoices[quiz.language][quiz.step].length - 1.8}vh`
+                    inputElement.style.fontSize = "100%";
+                    inputElement.addEventListener("change", (x) => {
+                        console.log(quiz.step);
+                        if(x.target.value == quiz.rightChoices[quiz.language][quiz.step]){
+                            quiz.toggleColors(inputElement, quiz.box, quiz.message, quiz.next, "success");
+                            quiz.isClicked = true;
+                            inputElement.disabled = true;
+                            quiz.step++;
+                            console.log(quiz.step);
+                        }else {
+                            quiz.toggleColors(inputElement, quiz.box, quiz.message, quiz.next, "failure");
+                        }
+                    })
+                    quiz.answers.appendChild(inputElement);
+                    quiz.answers.appendChild(textNext);
                 }
             },
             end(){
@@ -90,7 +101,7 @@
                 n.style.border = `${styles.sborder} ${styles.mcolor}`;
                 n.innerText = styles.nText;
             },
-            createAnswerElement(x, i) {
+            createAnswerElement(x) {
                     const answerElement = doc.createElement("p");
                     answerElement.innerText = x;
                     answerElement.setAttribute("id", `antwort`);
