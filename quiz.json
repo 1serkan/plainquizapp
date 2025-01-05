@@ -183,6 +183,52 @@
             "id": 16,
             "language": 0,
             "question": "What is the meaning of comments in Java?"
+        },
+        {
+            "answers": [
+                "To output text",
+                "To create text variables",
+                "To explain and document code",
+                "To print text and numbers with a simple line of code"
+            ],
+            "correctAnswer": "To explain and document code",
+            "id": 16,
+            "language": 0,
+            "question": "What is the meaning of comments in Java?"
+        },
+        {
+            "answers": [
+                ".pp",
+                ".pt",
+                ".py"
+            ],
+            "correctAnswer": ".py",
+            "id": 17,
+            "language": 2,
+            "question": "What is the correct file extension for Python files?"
+        },
+        {
+            "answers": [
+                "python --version",
+                "python ##version",
+                "python version"
+            ],
+            "correctAnswer": "python --version",
+            "id": 18,
+            "language": 2,
+            "question": "What is a correct command line syntax for checking if python is installed on your computer? (And also to check the Python version)"
+        },
+        {
+            "answers": [
+                "exit()",
+                "stop()",
+                "end()"
+            ],
+            "correctAnswer": "exit()",
+            "id": 19,
+            "language": 2,
+            "question": "What is a correct syntax to exit the Python command line interface?"
         }
+
     ]
 }

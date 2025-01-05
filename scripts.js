@@ -10,13 +10,13 @@
             isClicked: false,
             type: 1, //type 1 = multiple choice - type 2 text
             language: 0,
-            questions: [[], []], //Index 0 sind Java Fragen
-            answer: [[], []],
-            rightChoices: [[], []],
+            questions: [[], [], []], //Index 0 sind Java Fragen
+            answer: [[], [], []],
+            rightChoices: [[], [], []],
             endPageText: "Glückwunsch du hast den Test abgeschlossen!",
             endPageFontSize: "2vh",
             selectLanguage(input){
-                input.textContent == "Java" ? this.language = 0 : this.language = 1;
+                input.textContent == "Java" ? this.language = 0 : (input.textContent == "C++") ? this.language = 1 : this.language = 2;
                 quiz.loadQuestion();
                 quiz.next.style.display = "flex";
             },
@@ -112,8 +112,9 @@
         .then(data => {
             data.questions.forEach((q) => {
                 switch(q.language){
-                    case 0: quiz.pushToArray(0, q); break;
-                    case 1: quiz.pushToArray(1, q); break;
+                    case 0: quiz.pushToArray(q.language, q); break;
+                    case 1: quiz.pushToArray(q.language, q); break;
+                    case 2: quiz.pushToArray(q.language, q); break;
                 };
             });
         })

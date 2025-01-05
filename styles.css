@@ -74,20 +74,19 @@ message{
 }
 
 button{
-    width: 7vh;
     height: 7vh;
-    font-size: 2vh;
+    font-size: 100%;
     border: none;
     border: 1px solid #075985;
     border-radius: 20px;
     margin-right: 0.4vh;
+    padding: 3%;
 }
 
 button:hover {
     background-color: #075985;
     cursor: pointer;
     color: white;
-    font-weight: bolder;
 }
 
 @media screen and (max-width: 980px){
