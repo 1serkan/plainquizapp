@@ -9,6 +9,7 @@
             "correctAnswer": "MyClass.java",
             "id": 0,
             "language": 0,
+            "type" : 0,
             "question": "A file containing a class called MyClass should be saved as:"
         },
         {
@@ -19,6 +20,7 @@
             "correctAnswer": "True",
             "id": 1,
             "language": 0,
+            "type" : 0,
             "question": "Java is case-sensitive: 'MyClass' and 'myclass' has different meaning."
         },
         {
@@ -31,6 +33,7 @@
             "correctAnswer": "A header file library",
             "id": 2,
             "language": 1,
+            "type" : 0,
             "question": "What is #include <iostream>?"
         },
         {
@@ -41,6 +44,7 @@
             "correctAnswer": "True",
             "id": 3,
             "language": 1,
+            "type" : 0,
             "question": "C++ is case-sensitive: 'main' and 'Main' has different meaning."
         },
         {
@@ -53,6 +57,7 @@
             "correctAnswer": "Hello World!",
             "id": 4,
             "language": 1,
+            "type" : 0,
             "question": "What is the output of the following code? \\n #include <iostream> int main() {std::cout << \\\"Hello World!\\\"; return 0;}"
         },
         {
@@ -63,6 +68,7 @@
             "correctAnswer": "True",
             "id": 5,
             "language": 1,
+            "type" : 0,
             "question": "In C++, each code statement must end with a semicolon (;)."
         },
         {
@@ -74,6 +80,7 @@
             "correctAnswer": "Error",
             "id": 6,
             "language": 1,
+            "type" : 0,
             "question": "What is the output of the following code? cout << \"Hello World!\""
         },
         {
@@ -85,6 +92,7 @@
             "correctAnswer": "Hello World!",
             "id": 7,
             "language": 1,
+            "type" : 0,
             "question": "What is the output of the following code? cout << \"Hello World!\";"
         },
         {
@@ -95,6 +103,7 @@
             "correctAnswer": "True",
             "id": 8,
             "language": 1,
+            "type" : 0,
             "question": "Statements are executed, one by one, in the same order as they are written."
         },
         {
@@ -105,6 +114,7 @@
             "correctAnswer": "True",
             "id": 9,
             "language": 0,
+            "type" : 0,
             "question": "In Java, each code statement must end with a semicolon (;)."
         },
         {
@@ -117,6 +127,7 @@
             "correctAnswer": "println()",
             "id": 10,
             "language": 0,
+            "type" : 0,
             "question": "Which method is often used to print text in Java?"
         },
         {
@@ -127,6 +138,7 @@
             "correctAnswer": "True",
             "id": 11,
             "language": 0,
+            "type" : 0,
             "question": "Text inside println() must be wrapped inside double quotes."
         },
         {
@@ -137,6 +149,7 @@
             "correctAnswer": "The println() method adds a line break after printing, while print() does not",
             "id": 12,
             "language": 0,
+            "type" : 0,
             "question": "The difference between println() and print() is that:"
         },
         {
@@ -148,6 +161,7 @@
             "correctAnswer": "6",
             "id": 13,
             "language": 0,
+            "type" : 0,
             "question": "What is the output of the following code? System.out.println(3 + 3);"
         },
         {
@@ -158,6 +172,7 @@
             "correctAnswer": "False",
             "id": 14,
             "language": 0,
+            "type" : 0,
             "question": "Numbers inside println() must be wrapped inside double quotes."
         },
         {
@@ -170,6 +185,7 @@
             "correctAnswer": "10",
             "id": 15,
             "language": 0,
+            "type" : 0,
             "question": "What is the output of the following code? System.out.println(2 * 5);"
         },
         {
@@ -182,6 +198,7 @@
             "correctAnswer": "To explain and document code",
             "id": 16,
             "language": 0,
+            "type" : 0,
             "question": "What is the meaning of comments in Java?"
         },
         {
@@ -192,8 +209,9 @@
                 "To print text and numbers with a simple line of code"
             ],
             "correctAnswer": "To explain and document code",
-            "id": 16,
+            "id": 17,
             "language": 0,
+            "type" : 0,
             "question": "What is the meaning of comments in Java?"
         },
         {
@@ -203,8 +221,9 @@
                 ".py"
             ],
             "correctAnswer": ".py",
-            "id": 17,
+            "id": 18,
             "language": 2,
+            "type" : 0,
             "question": "What is the correct file extension for Python files?"
         },
         {
@@ -214,8 +233,9 @@
                 "python version"
             ],
             "correctAnswer": "python --version",
-            "id": 18,
+            "id": 19,
             "language": 2,
+            "type" : 0,
             "question": "What is a correct command line syntax for checking if python is installed on your computer? (And also to check the Python version)"
         },
         {
@@ -225,8 +245,9 @@
                 "end()"
             ],
             "correctAnswer": "exit()",
-            "id": 19,
+            "id": 20,
             "language": 2,
+            "type" : 0,
             "question": "What is a correct syntax to exit the Python command line interface?"
         },
         {
@@ -237,7 +258,18 @@
             "correctAnswer": "False",
             "id": 21,
             "language": 2,
+            "type" : 0,
             "question": "Indentation in Python is for readability only."
+        },
+        {
+            "answers": [
+                "(\"Hello World\")"
+            ],
+            "correctAnswer": "print",
+            "id": 21,
+            "language": 2,
+            "type" : 1,
+            "question": "Insert the missing part of the code below to output \"Hello World\""
         }
     ]
 }

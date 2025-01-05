@@ -8,7 +8,7 @@
             languagesButton: doc.getElementById("languages"),
             step: 0,
             isClicked: false,
-            type: 1, //type 1 = multiple choice - type 2 text
+            type: [[], [], []], //type 0 = multiple choice - type 1 text
             language: 0,
             questions: [[], [], []], //Index 0 sind Java Fragen
             answer: [[], [], []],
@@ -34,11 +34,25 @@
             loadQuestion(){
                 quiz.answers.innerHTML = "";
                 quiz.question.innerText = quiz.questions[quiz.language][quiz.step];
-                quiz.answer[quiz.language][quiz.step]
-                .forEach((a, i) => {
-                    const answerElement = quiz.createAnswerElement(a, i);
-                    quiz.answers.appendChild(answerElement);
-                });
+                if(quiz.type[quiz.language][quiz.step] == 0){
+                    quiz.answer[quiz.language][quiz.step]
+                    .forEach((a, i) => {
+                        const answerElement = quiz.createAnswerElement(a, i);
+                        quiz.answers.appendChild(answerElement);
+                    });
+                }else{
+                    console.log(quiz.rightChoices[quiz.language][quiz.step]);
+                    quiz.answers.style.display = "flex";
+                    const offeneFrage = doc.createElement("input");
+                    const TextDaneben = doc.createElement("p");
+                    TextDaneben.innerText = quiz.answer[quiz.language][quiz.step][0];
+                    offeneFrage.setAttribute("id", "inputfield")
+                    offeneFrage.maxLength = quiz.rightChoices[quiz.language][quiz.step].length;
+                    offeneFrage.style.width = `${quiz.rightChoices[quiz.language][quiz.step].length - 1.8}vh`
+                    offeneFrage.style.fontSize = "100%";
+                    quiz.answers.appendChild(offeneFrage);
+                    quiz.answers.appendChild(TextDaneben);
+                }
             },
             end(){
                 quiz.question.innerText = quiz.endPageText;
@@ -52,6 +66,7 @@
                 quiz.questions[x].push(q.question); 
                 quiz.answer[x].push(q.answers); 
                 quiz.rightChoices[x].push(q.correctAnswer);
+                quiz.type[x].push(q.type);
             },
             toggleColors(x, b, m, n, state){
                 let mheight = "14vh";
@@ -76,17 +91,16 @@
                 n.innerText = styles.nText;
             },
             createAnswerElement(x, i) {
-                const answerElement = doc.createElement("p");
-                answerElement.innerText = x;
-                answerElement.setAttribute("id", `Antwort${i}`);
+                    const answerElement = doc.createElement("p");
+                    answerElement.innerText = x;
+                    answerElement.setAttribute("id", `antwort`);
     
-                if(!quiz.isClicked){
-                    answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});
-                    answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #e5e5e5" : null})
+                    if(!quiz.isClicked){
+                        answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});
+                        answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #e5e5e5" : null})
                     
-                    answerElement.addEventListener("click", () => quiz.checkSelected(answerElement))
-            }
-    
+                        answerElement.addEventListener("click", () => quiz.checkSelected(answerElement))
+                }
                 return answerElement;
             }
         }

@@ -49,13 +49,14 @@ next:hover {
 answer{
     display: grid;
     width: 50vh;
+    margin: 2%;
 }
 
-answer > p {
+answer > #antwort {
     cursor: grabbing;
 }
 
-p{
+#antwort{
     padding: 2%;
     font-size: 1.4rem;
     color: #262626;
@@ -89,6 +90,12 @@ button:hover {
     color: white;
 }
 
+#inputfield {
+    border: 1px solid #075985;
+    border-radius: 4px;
+    padding: 2%;
+}
+
 @media screen and (max-width: 980px){
     #container{
         display: block;
@@ -113,7 +120,7 @@ button:hover {
         font-size: 3vh;
     }
 
-    p{
+    #antwort{
         font-size: 3vh;
     }
 
