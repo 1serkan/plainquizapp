@@ -228,7 +228,16 @@
             "id": 19,
             "language": 2,
             "question": "What is a correct syntax to exit the Python command line interface?"
+        },
+        {
+            "answers": [
+                "True",
+                "False"
+            ],
+            "correctAnswer": "False",
+            "id": 21,
+            "language": 2,
+            "question": "Indentation in Python is for readability only."
         }
-
     ]
 }
