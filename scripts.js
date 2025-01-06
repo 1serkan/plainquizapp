@@ -1,4 +1,4 @@
-        const doc = document;
+        const doc = document; // TODO: morgen Content Creator so anpassen, dass type abgefragt wird und entsprechend dann quiz hinzugefügt wird.
         const quiz = {
             question: doc.querySelector("question"),
             answers: doc.querySelector("answer"),
@@ -10,7 +10,7 @@
             isClicked: false,
             type: [[], [], []],
             language: 0,
-            questions: [[], [], []], //Index 0 sind Java Fragen
+            questions: [[], [], []],
             answer: [[], [], []],
             rightChoices: [[], [], []],
             endPageText: "Congratulations, you have completed the test!",
@@ -34,6 +34,7 @@
             loadQuestion(){
                 quiz.answers.innerHTML = "";
                 quiz.question.innerText = quiz.questions[quiz.language][quiz.step];
+                doc.title =  `Question ${quiz.step}/${quiz.questions[quiz.language].length - 1}`;
                 if(quiz.type[quiz.language][quiz.step] == 0){
                     quiz.answers.style.display = "grid";
                     quiz.answer[quiz.language][quiz.step]
@@ -48,7 +49,7 @@
                     textNext.innerText = quiz.answer[quiz.language][quiz.step][0];
                     inputElement.setAttribute("id", "inputfield")
                     inputElement.maxLength = quiz.rightChoices[quiz.language][quiz.step].length;
-                    inputElement.style.width = `${quiz.rightChoices[quiz.language][quiz.step].length - 1.8}vh`
+                    inputElement.style.width = `${quiz.rightChoices[quiz.language][quiz.step].length}vh`
                     inputElement.style.fontSize = "100%";
                     inputElement.addEventListener("change", (x) => {
                         console.log(quiz.step);
@@ -69,6 +70,7 @@
             end(){
                 quiz.question.innerText = quiz.endPageText;
                 quiz.question.style.fontSize = quiz.endPageFontSize;
+                doc.title = "Quiz: Congratulations!";
                 this.message.remove();
                 this.next.remove();
                 this.answers.remove();
@@ -106,7 +108,7 @@
                     const answerElement = doc.createElement("p");
                     answerElement.innerText = x;
                     answerElement.setAttribute("id", `antwort`);
-                    (x.length) < 20 ? answerElement.style.width = `${x.length}rem` : answerElement.style.width = `20rem`;
+                    answerElement.style.width = "27.5rem";
     
                     if(!quiz.isClicked){
                         answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});

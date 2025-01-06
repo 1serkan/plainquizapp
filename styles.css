@@ -104,6 +104,10 @@ button:hover {
     outline: none;
 }
 
+#languages {
+    margin-bottom: 5%;
+}
+
 @media screen and (max-width: 980px){
     #container{
         display: block;

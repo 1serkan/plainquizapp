@@ -1,275 +1,334 @@
 {
-    "questions": [
-        {
-            "answers": [
-                "MyClass.jv",
-                "MyClass.java",
-                "MyClass.js"
-            ],
-            "correctAnswer": "MyClass.java",
-            "id": 0,
-            "language": 0,
-            "type" : 1,
-            "question": "A file containing a class called MyClass should be saved as:"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 1,
-            "language": 0,
-            "type" : 0,
-            "question": "Java is case-sensitive: 'MyClass' and 'myclass' has different meaning."
-        },
-        {
-            "answers": [
-                "An Object",
-                "A header file library",
-                "A namespace",
-                "A function"
-            ],
-            "correctAnswer": "A header file library",
-            "id": 2,
-            "language": 1,
-            "type" : 0,
-            "question": "What is #include <iostream>?"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 3,
-            "language": 1,
-            "type" : 0,
-            "question": "C++ is case-sensitive: 'main' and 'Main' has different meaning."
-        },
-        {
-            "answers": [
-                "Error because it is missing using namespace std;",
-                "Error because it uses std::",
-                "Hello World!",
-                "std"
-            ],
-            "correctAnswer": "Hello World!",
-            "id": 4,
-            "language": 1,
-            "type" : 0,
-            "question": "What is the output of the following code? \\n #include <iostream> int main() {std::cout << \\\"Hello World!\\\"; return 0;}"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 5,
-            "language": 1,
-            "type" : 0,
-            "question": "In C++, each code statement must end with a semicolon (;)."
-        },
-        {
-            "answers": [
-                "Hello World!",
-                "cout",
-                "Error"
-            ],
-            "correctAnswer": "Error",
-            "id": 6,
-            "language": 1,
-            "type" : 0,
-            "question": "What is the output of the following code? cout << \"Hello World!\""
-        },
-        {
-            "answers": [
-                "Hello World!",
-                "cout",
-                "Error"
-            ],
-            "correctAnswer": "Hello World!",
-            "id": 7,
-            "language": 1,
-            "type" : 0,
-            "question": "What is the output of the following code? cout << \"Hello World!\";"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 8,
-            "language": 1,
-            "type" : 0,
-            "question": "Statements are executed, one by one, in the same order as they are written."
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 9,
-            "language": 0,
-            "type" : 0,
-            "question": "In Java, each code statement must end with a semicolon (;)."
-        },
-        {
-            "answers": [
-                "println()",
-                "printline()",
-                "printtext()",
-                "echo()"
-            ],
-            "correctAnswer": "println()",
-            "id": 10,
-            "language": 0,
-            "type" : 0,
-            "question": "Which method is often used to print text in Java?"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "True",
-            "id": 11,
-            "language": 0,
-            "type" : 0,
-            "question": "Text inside println() must be wrapped inside double quotes."
-        },
-        {
-            "answers": [
-                "The println() method adds a line break after printing, while print() does not",
-                "The print() method adds a line break after printing, while println() does not"
-            ],
-            "correctAnswer": "The println() method adds a line break after printing, while print() does not",
-            "id": 12,
-            "language": 0,
-            "type" : 0,
-            "question": "The difference between println() and print() is that:"
-        },
-        {
-            "answers": [
-                "3",
-                "6",
-                "9"
-            ],
-            "correctAnswer": "6",
-            "id": 13,
-            "language": 0,
-            "type" : 0,
-            "question": "What is the output of the following code? System.out.println(3 + 3);"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "False",
-            "id": 14,
-            "language": 0,
-            "type" : 0,
-            "question": "Numbers inside println() must be wrapped inside double quotes."
-        },
-        {
-            "answers": [
-                "2",
-                "25",
-                "10",
-                "5"
-            ],
-            "correctAnswer": "10",
-            "id": 15,
-            "language": 0,
-            "type" : 0,
-            "question": "What is the output of the following code? System.out.println(2 * 5);"
-        },
-        {
-            "answers": [
-                "To output text",
-                "To create text variables",
-                "To explain and document code",
-                "To print text and numbers with a simple line of code"
-            ],
-            "correctAnswer": "To explain and document code",
-            "id": 16,
-            "language": 0,
-            "type" : 0,
-            "question": "What is the meaning of comments in Java?"
-        },
-        {
-            "answers": [
-                "To output text",
-                "To create text variables",
-                "To explain and document code",
-                "To print text and numbers with a simple line of code"
-            ],
-            "correctAnswer": "To explain and document code",
-            "id": 17,
-            "language": 0,
-            "type" : 0,
-            "question": "What is the meaning of comments in Java?"
-        },
-        {
-            "answers": [
-                ".pp",
-                ".pt",
-                ".py"
-            ],
-            "correctAnswer": ".py",
-            "id": 18,
-            "language": 2,
-            "type" : 0,
-            "question": "What is the correct file extension for Python files?"
-        },
-        {
-            "answers": [
-                "python --version",
-                "python ##version",
-                "python version"
-            ],
-            "correctAnswer": "python --version",
-            "id": 19,
-            "language": 2,
-            "type" : 0,
-            "question": "What is a correct command line syntax for checking if python is installed on your computer? (And also to check the Python version)"
-        },
-        {
-            "answers": [
-                "exit()",
-                "stop()",
-                "end()"
-            ],
-            "correctAnswer": "exit()",
-            "id": 20,
-            "language": 2,
-            "type" : 0,
-            "question": "What is a correct syntax to exit the Python command line interface?"
-        },
-        {
-            "answers": [
-                "True",
-                "False"
-            ],
-            "correctAnswer": "False",
-            "id": 21,
-            "language": 2,
-            "type" : 0,
-            "question": "Indentation in Python is for readability only."
-        },
-        {
-            "answers": [
-                "(\"Hello World\")"
-            ],
-            "correctAnswer": "print",
-            "id": 21,
-            "language": 2,
-            "type" : 1,
-            "question": "Insert the missing part of the code below to output \"Hello World\""
-        }
-    ]
+     "questions": [
+          {
+               "answers": [
+                    "MyClass.jv",
+                    "MyClass.java",
+                    "MyClass.js"
+               ],
+               "correctAnswer": "MyClass.java",
+               "id": 0,
+               "language": 0,
+               "question": "A file containing a class called MyClass should be saved as:",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 1,
+               "language": 0,
+               "question": "Java is case-sensitive: 'MyClass' and 'myclass' has different meaning.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "An Object",
+                    "A header file library",
+                    "A namespace",
+                    "A function"
+               ],
+               "correctAnswer": "A header file library",
+               "id": 2,
+               "language": 1,
+               "question": "What is #include <iostream>?",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 3,
+               "language": 1,
+               "question": "C++ is case-sensitive: 'main' and 'Main' has different meaning.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "Error because it is missing using namespace std;",
+                    "Error because it uses std::",
+                    "Hello World!",
+                    "std"
+               ],
+               "correctAnswer": "Hello World!",
+               "id": 4,
+               "language": 1,
+               "question": "What is the output of the following code? \\n #include <iostream> int main() {std::cout << \\\"Hello World!\\\"; return 0;}",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 5,
+               "language": 1,
+               "question": "In C++, each code statement must end with a semicolon (;).",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "Hello World!",
+                    "cout",
+                    "Error"
+               ],
+               "correctAnswer": "Error",
+               "id": 6,
+               "language": 1,
+               "question": "What is the output of the following code? cout << \"Hello World!\"",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "Hello World!",
+                    "cout",
+                    "Error"
+               ],
+               "correctAnswer": "Hello World!",
+               "id": 7,
+               "language": 1,
+               "question": "What is the output of the following code? cout << \"Hello World!\";",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 8,
+               "language": 1,
+               "question": "Statements are executed, one by one, in the same order as they are written.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 9,
+               "language": 0,
+               "question": "In Java, each code statement must end with a semicolon (;).",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "println()",
+                    "printline()",
+                    "printtext()",
+                    "echo()"
+               ],
+               "correctAnswer": "println()",
+               "id": 10,
+               "language": 0,
+               "question": "Which method is often used to print text in Java?",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "True",
+               "id": 11,
+               "language": 0,
+               "question": "Text inside println() must be wrapped inside double quotes.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "The println() method adds a line break after printing, while print() does not",
+                    "The print() method adds a line break after printing, while println() does not"
+               ],
+               "correctAnswer": "The println() method adds a line break after printing, while print() does not",
+               "id": 12,
+               "language": 0,
+               "question": "The difference between println() and print() is that:",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "3",
+                    "6",
+                    "9"
+               ],
+               "correctAnswer": "6",
+               "id": 13,
+               "language": 0,
+               "question": "What is the output of the following code? System.out.println(3 + 3);",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "False",
+               "id": 14,
+               "language": 0,
+               "question": "Numbers inside println() must be wrapped inside double quotes.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "2",
+                    "25",
+                    "10",
+                    "5"
+               ],
+               "correctAnswer": "10",
+               "id": 15,
+               "language": 0,
+               "question": "What is the output of the following code? System.out.println(2 * 5);",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "To output text",
+                    "To create text variables",
+                    "To explain and document code",
+                    "To print text and numbers with a simple line of code"
+               ],
+               "correctAnswer": "To explain and document code",
+               "id": 16,
+               "language": 0,
+               "question": "What is the meaning of comments in Java?",
+               "type": 0
+          },
+          {
+               "answers": [
+                    ".pp",
+                    ".pt",
+                    ".py"
+               ],
+               "correctAnswer": ".py",
+               "id": 17,
+               "language": 2,
+               "question": "What is the correct file extension for Python files?",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "python --version",
+                    "python ##version",
+                    "python version"
+               ],
+               "correctAnswer": "python --version",
+               "id": 18,
+               "language": 2,
+               "question": "What is a correct command line syntax for checking if python is installed on your computer? (And also to check the Python version)",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "exit()",
+                    "stop()",
+                    "end()"
+               ],
+               "correctAnswer": "exit()",
+               "id": 19,
+               "language": 2,
+               "question": "What is a correct syntax to exit the Python command line interface?",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "True",
+                    "False"
+               ],
+               "correctAnswer": "False",
+               "id": 20,
+               "language": 2,
+               "question": "Indentation in Python is for readability only.",
+               "type": 0
+          },
+          {
+               "answers": [
+                    "(\"Hello World\")"
+               ],
+               "correctAnswer": "print",
+               "id": 21,
+               "language": 2,
+               "question": "Insert the missing part of the code below to output \"Hello World\"",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "carName = \"Volvo\";"
+               ],
+               "correctAnswer": "String",
+               "id": 22,
+               "language": 0,
+               "question": "Create a variable named carName and assign the value Volvo to it.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "maxSpeed = 120;"
+               ],
+               "correctAnswer": "int",
+               "id": 23,
+               "language": 0,
+               "question": "Create a variable named maxSpeed and assign the value 120 to it.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "<< 10 * 5;"
+               ],
+               "correctAnswer": "cout",
+               "id": 24,
+               "language": 1,
+               "question": "Multiply 10 with 5, and print the result.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "x"
+               ],
+               "correctAnswer": "++",
+               "id": 25,
+               "language": 1,
+               "question": "Use the correct operator to increase the value of the variable int x = 10; by 1.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "= \"Volvo\""
+               ],
+               "correctAnswer": "carname",
+               "id": 26,
+               "language": 2,
+               "question": "Create a variable named carname and assign the value Volvo to it.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "= 50"
+               ],
+               "correctAnswer": "x",
+               "id": 27,
+               "language": 2,
+               "question": "Create a variable named x and assign the value 50 to it.",
+               "type": 1
+          },
+          {
+               "answers": [
+                    "35",
+                    "35.88",
+                    "36"
+               ],
+               "correctAnswer": "35",
+               "id": 28,
+               "language": 2,
+               "question": "What will be the result of the following code: print(int(35.88))",
+               "type": 0
+          }
+     ]
 }
