@@ -1,4 +1,4 @@
-        const doc = document; // TODO: morgen Content Creator so anpassen, dass type abgefragt wird und entsprechend dann quiz hinzugefügt wird.
+        const doc = document;
         const quiz = {
             question: doc.querySelector("question"),
             answers: doc.querySelector("answer"),
@@ -16,7 +16,12 @@
             endPageText: "Congratulations, you have completed the test!",
             endPageFontSize: "2vh",
             selectLanguage(input){
-                input.textContent == "Java" ? this.language = 0 : (input.textContent == "C++") ? this.language = 1 : this.language = 2;
+                quiz.checkIfExist();
+                switch(input.textContent){
+                    case "Java": this.language = 0; break;
+                    case "C++": this.language = 1; break;
+                    default: this.language = 2; break;
+                }
                 quiz.loadQuestion();
                 quiz.next.style.display = "flex";
             },
@@ -29,6 +34,11 @@
                     quiz.step++;
                 }else {
                     quiz.toggleColors(answerElement, quiz.box, quiz.message, quiz.next, "failure");
+                }
+            },
+            checkIfExist(){
+                if (!quiz.question || !quiz.answers || !quiz.next || !quiz.message) {
+                    throw new Error("DOM element were not found.");
                 }
             },
             loadQuestion(){
