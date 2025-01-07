@@ -3,9 +3,9 @@
             question: doc.querySelector("question"),
             answers: doc.querySelector("answer"),
             next: doc.querySelector("next"),
-            message: doc.querySelector("message"),
-            box: doc.getElementById("box"),
-            languagesButton: doc.getElementById("languages"),
+            message: doc.getElementsByClassName("message")[0],
+            box: doc.getElementsByClassName("box")[0],
+            languagesButton: doc.getElementsByClassName("languages")[0],
             step: 0,
             isClicked: false,
             type: [[], [], []],
@@ -13,6 +13,10 @@
             questions: [[], [], []],
             answer: [[], [], []],
             rightChoices: [[], [], []],
+            nextButtonText: "Next",
+            retryButtonText: "Retry",
+            successText: "You have made the correct selection\n Click Next to continue.",
+            failureText: "You have made the wrong selection\n Click on Retry to try again.",
             endPageText: "Congratulations, you have completed the test!",
             endPageFontSize: "2vh",
             selectLanguage(input){
@@ -92,45 +96,41 @@
                 quiz.rightChoices[x].push(q.correctAnswer);
                 quiz.type[x].push(q.type);
             },
+            styleManager(element, box, message, nextButton, state){
+                const elements = [
+                    { element: element, success: "successElement", failure: "failureElement" },
+                    { element: box, success: "successBox", failure: "failureBox" },
+                    { element: message, success: "successBg", failure: "failureBg" },
+                    { element: nextButton, success: "successBg", failure: "failureBg" },
+                ];
+                
+                if (state == "remove") {
+                    elements.forEach(({ element, success, failure }) => {
+                        element.classList.remove(success, failure);
+                    });
+                }else if (state === "success" || state === "failure") {
+                    elements.forEach(({ element, success, failure }) => {
+                        element.classList.add(state === "success" ? success : failure);
+                    });
+                }
+            },
             toggleColors(Element, Box, Message, nextButton, state){
-                let mheight = "14vh";
+                quiz.styleManager(Element, Box, Message, nextButton, "remove");
+                quiz.styleManager(Element, Box, Message, nextButton, state);
+                
 
-                if(window.innerWidth < 980 || screen.width < 500){
-                    m.style.height = mheight;
-                }
-
-                // const styles = state === "success" 
-                // ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "#3c8351", mText: "You have made the correct selection\n Click Next to continue.", nText: "Next"}
-                // : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "#833c3c", mText: "You have made the wrong selection\n Click on Retry to try again.", nText: "Retry"};
-            
-                // Element.style.border = `${styles.sborder} ${styles.mcolor}`;
-                // Element.style.color = styles.scolor;
-                // Box.style.border = `${styles.bcolor} ${styles.mcolor}`;
-                // Message.style.color = styles.mcolor;
-                // Message.style.backgroundColor = styles.mbgcolor;
-                // Message.style.border = `${styles.sborder} ${styles.mcolor}`;
-                // Message.innerText = styles.mText;
-                // nextButton.style.backgroundColor = styles.mbgcolor;
-                // nextButton.style.border = `${styles.sborder} ${styles.mcolor}`;
-                // nextButton.innerText = styles.nText;
-
-                if(state === "success"){
-                    Element.classList.add("success");
-                }
-
-                Message.innerText = state === "success" ? "You have made the correct selection\n Click Next to continue." : "You have made the wrong selection\n Click on Retry to try again.";
-                nextButton.innerText = state === "success" ? "Next" : "Retry";
+                Message.innerText = state === "success" ? quiz.successText : quiz.failureText;
+                nextButton.innerText = state === "success" ? quiz.nextButtonText : quiz.retryButtonText;
             },
             createAnswerElement(x) {
                     const answerElement = doc.createElement("p");
                     answerElement.innerText = x;
                     answerElement.classList.add("antwort");
-                    answerElement.style.width = "27.5rem";
     
                     if(!quiz.isClicked){
                         answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.classList.add("antwortBorderLeft") : null});
                         answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.classList.remove("antwortBorderLeft") : null})
-                        
+
                         answerElement.addEventListener("click", () => quiz.checkSelected(answerElement))
                 }
                 return answerElement;
@@ -157,11 +157,7 @@
         })
         .then(data => {
             data.questions.forEach((q) => {
-                switch(q.language){
-                    case 0: quiz.pushToArray(q.language, q); break;
-                    case 1: quiz.pushToArray(q.language, q); break;
-                    case 2: quiz.pushToArray(q.language, q); break;
-                };
+                quiz.pushToArray(q.language, q);
             });
         })
         .catch(error => console.error('Error loading the JSON:', error));
