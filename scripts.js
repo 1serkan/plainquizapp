@@ -92,38 +92,45 @@
                 quiz.rightChoices[x].push(q.correctAnswer);
                 quiz.type[x].push(q.type);
             },
-            toggleColors(x, b, m, n, state){
+            toggleColors(Element, Box, Message, nextButton, state){
                 let mheight = "14vh";
 
                 if(window.innerWidth < 980 || screen.width < 500){
                     m.style.height = mheight;
                 }
 
-                const styles = state === "success" 
-                ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "rgb(60, 131, 81)", mText: "You have made the correct selection\n Click Next to continue.", nText: "Next"}
-                : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "rgb(131, 60, 60)", mText: "You have made the wrong selection\n Click on Retry to try again.", nText: "Retry"};
+                // const styles = state === "success" 
+                // ? {sborder: "1px solid", scolor: "#16A34A", bcolor: "0.2rem solid", mcolor: "#6EE7B7", mbgcolor: "#3c8351", mText: "You have made the correct selection\n Click Next to continue.", nText: "Next"}
+                // : {sborder: "1px solid", scolor: "#a31616", bcolor: "0.2rem solid", mcolor: "#e76e6e", mbgcolor: "#833c3c", mText: "You have made the wrong selection\n Click on Retry to try again.", nText: "Retry"};
             
-                x.style.border = `${styles.sborder} ${styles.mcolor}`;
-                x.style.color = styles.scolor;
-                b.style.border = `${styles.bcolor} ${styles.mcolor}`;
-                m.style.color = styles.mcolor;
-                m.style.backgroundColor = styles.mbgcolor;
-                m.style.border = `${styles.sborder} ${styles.mcolor}`;
-                m.innerText = styles.mText;
-                n.style.backgroundColor = styles.mbgcolor;
-                n.style.border = `${styles.sborder} ${styles.mcolor}`;
-                n.innerText = styles.nText;
+                // Element.style.border = `${styles.sborder} ${styles.mcolor}`;
+                // Element.style.color = styles.scolor;
+                // Box.style.border = `${styles.bcolor} ${styles.mcolor}`;
+                // Message.style.color = styles.mcolor;
+                // Message.style.backgroundColor = styles.mbgcolor;
+                // Message.style.border = `${styles.sborder} ${styles.mcolor}`;
+                // Message.innerText = styles.mText;
+                // nextButton.style.backgroundColor = styles.mbgcolor;
+                // nextButton.style.border = `${styles.sborder} ${styles.mcolor}`;
+                // nextButton.innerText = styles.nText;
+
+                if(state === "success"){
+                    Element.classList.add("success");
+                }
+
+                Message.innerText = state === "success" ? "You have made the correct selection\n Click Next to continue." : "You have made the wrong selection\n Click on Retry to try again.";
+                nextButton.innerText = state === "success" ? "Next" : "Retry";
             },
             createAnswerElement(x) {
                     const answerElement = doc.createElement("p");
                     answerElement.innerText = x;
-                    answerElement.setAttribute("id", `antwort`);
+                    answerElement.classList.add("antwort");
                     answerElement.style.width = "27.5rem";
     
                     if(!quiz.isClicked){
-                        answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #1E3A8A" : null});
-                        answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.style.borderBottom = "1px solid #e5e5e5" : null})
-                    
+                        answerElement.addEventListener("mouseover", () => {!quiz.isClicked ? answerElement.classList.add("antwortBorderLeft") : null});
+                        answerElement.addEventListener("mouseleave", () => {!quiz.isClicked ? answerElement.classList.remove("antwortBorderLeft") : null})
+                        
                         answerElement.addEventListener("click", () => quiz.checkSelected(answerElement))
                 }
                 return answerElement;

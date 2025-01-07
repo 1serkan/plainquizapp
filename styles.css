@@ -52,16 +52,21 @@ answer{
     margin: 2%;
 }
 
-answer > #antwort {
+answer > .antwort {
     cursor: grabbing;
 }
 
-#antwort{
+.antwort{
     padding: 2%;
     font-size: 1.4rem;
     margin-block-start: 0em;
     margin-block-end: 0em;
     color: #262626;
+}
+
+.antwortBorderLeft{
+    border-left: 1px solid #1E3A8A;
+    border-left-width: thick;
 }
 
 message{
@@ -106,6 +111,25 @@ button:hover {
 
 #languages {
     margin-bottom: 5%;
+}
+
+.success{ /*Element, Box und Message*/
+    border-bottom: none;
+    color: #16A34A;
+    border: 1px solid #6EE7B7;
+}
+
+.successBg{ /*Message und nextButton*/
+    background-color: #3c8351;
+}
+
+.failure{
+    color: #a31616;
+    border: 1px solid #e76e6e;
+}
+
+.failureBg{
+    background-color: #833c3c;
 }
 
 @media screen and (max-width: 980px){
