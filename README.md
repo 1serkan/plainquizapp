@@ -39,6 +39,13 @@ npx vite
 <img src="https://github.com/user-attachments/assets/cac9bd8f-28e6-4d50-ad68-8aa2514599fc"></img>
 <img src="https://github.com/user-attachments/assets/f750929e-6a98-4a64-8263-4a0e4d57d105"></img>
 <img src="https://github.com/user-attachments/assets/ebb005e4-e832-4e01-a5b1-895836cf5071"></img>
+<h3>Mobile View</h3>
+<img src="https://github.com/user-attachments/assets/baa26770-bdfa-4679-b1cb-7cf7356a074d">
+<img src="https://github.com/user-attachments/assets/162ceb74-4bc9-4e5b-872f-98e9cedad846">
+<img src="https://github.com/user-attachments/assets/9c1c575f-c366-4ed7-9df0-16095bc20218">
+<img src="https://github.com/user-attachments/assets/a09ebb47-11f3-4012-ba6c-0a4219541633">
+<img src="https://github.com/user-attachments/assets/84bf87bc-7c68-4bb5-8d98-ea6c6c78b425">
+<img src="https://github.com/user-attachments/assets/0ae4a598-48ef-4559-aa9b-d17bf37bbf1b">
 
 <h2>Usage</h2>
 This repo can be used for further development purposes or for private use, but is unsuitable for starting professional projects</span>, as it is easy to manipulate and the questions and answers can theoretically be viewed.
