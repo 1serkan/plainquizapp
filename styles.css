@@ -51,11 +51,11 @@ answerList{
     margin: 2%;
 }
 
-answerList > .antwort {
+answerList > .answer {
     cursor: grabbing;
 }
 
-.antwort{
+.answer{
     width: 27.5rem;
     padding: 2%;
     font-size: 1.4rem;
@@ -64,7 +64,7 @@ answerList > .antwort {
     color: #262626;
 }
 
-.antwortBorderLeft{
+.answerBorderLeft{
     border-left: 1px solid #1E3A8A;
     border-left-width: thick;
 }
@@ -184,7 +184,11 @@ button:hover {
         height: 29%;
     }
 
-    .antwort{
+    .answer{
         width: 100%;
+    }
+
+    .inputfield{
+        margin-bottom: 45%;
     }
   }

@@ -42,6 +42,7 @@
                     case "C++": this.language = 1, this.languageToText = "C++"; break;
                     default: this.language = 2, this.languageToText = "Python"; break;
                 }
+
                 quiz.step = 0; // Reset step if user selects language
                 quiz.isClicked = false; // Reset clicked if user selects language
                 quiz.loadQuestion(); // Load the first question
@@ -136,7 +137,7 @@
 
             // tH = triggerHover, to trigger Hover Effect 
             tH(element, trigger, operationType){
-                element.addEventListener(trigger, () => {!quiz.isClicked ? quiz.clo(element, "antwortBorderLeft", operationType) : null});
+                element.addEventListener(trigger, () => {!quiz.isClicked ? quiz.clo(element, "answerBorderLeft", operationType) : null});
             },
 
             // End the quiz
@@ -149,6 +150,7 @@
                 this.answerList.remove();
                 this.languagesButton.remove();
             },
+
             // Push new question data into arrays
             pushToArray(i, q){
                 quiz.questions[i].push(q.question); 
@@ -194,7 +196,7 @@
             createAnswerElement(x) {
                 const answerElement = doc.createElement("p");
                 answerElement.innerText = x;
-                quiz.clo(answerElement, "antwort", "add");
+                quiz.clo(answerElement, "answer", "add");
     
                 if(!quiz.isClicked){
 
