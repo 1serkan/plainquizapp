@@ -329,6 +329,18 @@
                "language": 2,
                "question": "What will be the result of the following code: print(int(35.88))",
                "type": 0
+          },
+          {
+               "answers": [
+                    "print(dtype(x))",
+                    "print(type(x))",
+                    "print(x.dtype())"
+               ],
+               "correctAnswer": "print(type(x))",
+               "id": 29,
+               "language": 2,
+               "question": "If x = 5, what is a correct syntax for printing the data type of the variable x?",
+               "type": 0
           }
      ]
 }

@@ -15,7 +15,7 @@ question{
 }
 
 next {
-    display: flex;
+    display: none;
     color: rgb(255, 255, 255);
     border: 2px solid #155E75;
     background-color: #0E7490;
@@ -45,13 +45,13 @@ next:hover {
     border-radius: 0.9rem;
 }
 
-answer{
+answerList{
     display: grid;
     width: 50vh;
     margin: 2%;
 }
 
-answer > .antwort {
+answerList > .antwort {
     cursor: grabbing;
 }
 
@@ -97,15 +97,18 @@ button:hover {
     color: white;
 }
 
-#inputfield {
-    border: 1px solid #075985;
+.inputfield {
+    border: none;
+    background: transparent;
+    text-align: center;
     border-radius: 4px;
     padding: 2%;
+    border-bottom: 2px dotted #075985; 
+    padding-block: 0px;
+    padding-inline: 0px;
 }
 
-#inputfield:focus {
-    background-color: #075985;
-    color: white;
+.inputfield:focus {
     outline: none;
 }
 
@@ -113,24 +116,36 @@ button:hover {
     margin-bottom: 5%;
 }
 
-.successElement{ /* Element */
+.successChoiceElement{
     color: #16A34A;
-    border: 1px solid #6EE7B7;
+    border-left-color: #6EE7B7;
+    border-width: thick;
 }
 
-.successBg{ /* Message und nextButton */
+.successInputElement{
+    color: #16A34A;
+    border-color: #16A34A;
+}
+
+.successBg{
     color: #6EE7B7;
     border: 1px solid #6EE7B7;
     background-color: #3c8351;
 }
 
-.successBox{ /* Außenbox */
+.successBox{
     border: 0.2rem solid #6EE7B7;
 }
 
-.failureElement{
+.failureChoiceElement{
     color: #a31616;
-    border: 1px solid #e76e6e;
+    border-left-color: #e76e6e;
+    border-width: thick;
+}
+
+.failureInputElement{
+    color: #a31616;
+    border-color: #a31616;
 }
 
 .failureBg{
@@ -145,34 +160,31 @@ button:hover {
 
 @media screen and (max-width: 980px){
     #container{
-        display: block;
+        position: fixed;
         margin: 0;
+        top: 1px;
+        height: 46.5rem;
+        width: 101.3%;
+        justify-content: inherit;
     }
 
-    #box{
-        position: absolute;
-        display: grid;
-        height: 108vh;
-        width: 49vh;
-        margin-top: 3vh;
-    }
-    question {
-        height: 0;
-        font-size: 4vh;
-    }
-    message {
-        position: relative;
-        top: 7vh;
-        height: 7vh;
-        font-size: 3vh;
+    .box{
+        width: 90%;
     }
 
-    #antwort{
-        font-size: 3vh;
+    question{
+        width: 36vh;
     }
 
-    next {
-        font-size: 5vh;
-        margin: 2vh;
+    answerList{
+        width: 38vh;
+    }
+
+    .message{
+        height: 29%;
+    }
+
+    .antwort{
+        width: 100%;
     }
   }
