@@ -32,14 +32,13 @@ npx vite
 </code>
 
 <h2>Insights</h2>
-![home](https://github.com/user-attachments/assets/d18f933b-9cbe-4547-99d9-8263bc7952bf)
-![correct](https://github.com/user-attachments/assets/28d65546-6a6c-426e-a8df-e8535ff90451)
-![wrong](https://github.com/user-attachments/assets/d060a647-01a1-4c2c-8503-41ce044acb38)
-![openanswer](https://github.com/user-attachments/assets/da087743-b12b-471d-9622-a6db4fc324f1)
-![correctopenanswer](https://github.com/user-attachments/assets/cac9bd8f-28e6-4d50-ad68-8aa2514599fc)
-![wrongopenanswer](https://github.com/user-attachments/assets/f750929e-6a98-4a64-8263-4a0e4d57d105)
-![end](https://github.com/user-attachments/assets/ebb005e4-e832-4e01-a5b1-895836cf5071)
-
+<img src="https://github.com/user-attachments/assets/d18f933b-9cbe-4547-99d9-8263bc7952bf"></img>
+<img src="https://github.com/user-attachments/assets/28d65546-6a6c-426e-a8df-e8535ff90451"></img>
+<img src="https://github.com/user-attachments/assets/d060a647-01a1-4c2c-8503-41ce044acb38"></img>
+<img src="https://github.com/user-attachments/assets/da087743-b12b-471d-9622-a6db4fc324f1"></img>
+<img src="https://github.com/user-attachments/assets/cac9bd8f-28e6-4d50-ad68-8aa2514599fc"></img>
+<img src="https://github.com/user-attachments/assets/f750929e-6a98-4a64-8263-4a0e4d57d105"></img>
+<img src="https://github.com/user-attachments/assets/ebb005e4-e832-4e01-a5b1-895836cf5071"></img>
 
 <h2>Usage</h2>
 This repo can be used for further development purposes or for private use, but is unsuitable for starting professional projects</span>, as it is easy to manipulate and the questions and answers can theoretically be viewed.
