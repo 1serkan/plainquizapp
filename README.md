@@ -8,7 +8,6 @@ Quiz application in simple JavaScript, without libraries or framework usage. Thi
 ✅ <b>Interactive Answer Options</b><br> The quiz questions can either include multiple-choice questions or input fields<br><br>
 <li>Multiple-Choice Questions:</li> The answer options are displayed in a grid element, and the user clicks one of the options. <br>
 <li>Input Questions:</li>For input-based questions, an input field is displayed, and the user must type their answer, which is then validated. <br><br>
-✅ <b>Step-by-Step Navigation</b> <br> The quiz navigates step by step through the questions. The current step is managed by the step variable, which tracks progress in the quiz. <br><br>
 ✅ <b>Feedback System</b> <br> The application provides feedback on whether the answer is correct or incorrect. Based on this, it shows appropriate success or failure messages and dynamically styles the elements using CSS classes (<code>successBox, failureBox, successBg, failureBg</code>). <br><br>
 ✅ <b>Answer Validation</b> <br> Each answer is checked by comparing the user’s input with the correct answer. Correct answers increase the progress, while incorrect answers show feedback messages. <br><br>
 ✅ <b>Navigation with "Next" Button</b> <br> After answering a question, the user can move to the next question using the "Next" button. The button becomes visible after each question and adapts depending on whether the answer was correct or incorrect. <br><br>
