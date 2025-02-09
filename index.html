@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Test your programming knowledge with this interactive quiz on Java, C++, and Python.">
-        <meta name="keywords" content="quiz, programming, Java, C++, Python, interactive quiz">
-        <meta name="author" content="Serkan Özkan">
-        <meta name="language" content="en">
+<head>
+    <meta charset="utf-8">
 
-        <meta property="og:title" content="Interactive Programming Quiz">
-        <meta property="og:description" content="Test your knowledge of Java, C++, and Python with our fun and interactive quiz!">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://github.com/serkanoezkan">
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/42711581">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Test your programming knowledge with this interactive quiz on Java, C++, and Python.">
+    <meta name="keywords" content="quiz, programming, Java, C++, Python, interactive quiz">
+    <meta name="author" content="Serkan Özkan">
+    <meta name="language" content="en">
 
-        <link rel="icon" href="icon.webp" type="image/webp">
-        <link rel="apple-touch-icon" href="icon.webp">
-        <link rel="stylesheet" href="./styles.css">
+    <meta property="og:title" content="Interactive Programming Quiz">
+    <meta property="og:description"
+        content="Test your knowledge of Java, C++, and Python with our fun and interactive quiz!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/1serkan">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/42711581">
 
-        <title>Quiz: Homepage</title>
-    </head>
-    <body>
-        <div id="container">
-            <div class="box">
-                <div class="languages">
-                    <button type="button" onclick="quiz.selectLanguage(this)">Java</button>
-                    <button type="button" onclick="quiz.selectLanguage(this)">C++</button>
-                    <button type="button" onclick="quiz.selectLanguage(this)">Python</button>
-                </div>
-                <question></question>
-                <div class="message">Choose from the following options</div>
-                <answerList></answerList>
-                <next>Next</next>
+    <link rel="icon" href="icon.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="icon.webp">
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Quiz: Homepage</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="box">
+            <div class="languages">
+                <button type="button" onclick="quiz.selectLanguage(this)">Java</button>
+                <button type="button" onclick="quiz.selectLanguage(this)">C++</button>
+                <button type="button" onclick="quiz.selectLanguage(this)">Python</button>
             </div>
+            <question></question>
+            <div class="message">Choose from the following options</div>
+            <answerList></answerList>
+            <next>Next</next>
         </div>
+    </div>
     <script src="./scripts.js"></script>
-    </body>
+</body>
+
 </html>

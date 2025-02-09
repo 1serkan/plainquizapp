@@ -6,7 +6,7 @@ body {
     user-select: none;
 }
 
-question{
+question {
     color: #262626;
     display: inline-flex;
     font-size: 2rem;
@@ -29,7 +29,7 @@ next:hover {
     cursor: pointer;
 }
 
-#container{
+#container {
     position: relative;
     display: grid;
     margin: 10rem;
@@ -37,7 +37,7 @@ next:hover {
     bottom: 3vh;
 }
 
-.box{
+.box {
     display: grid;
     background-color: #e5e5e5;
     padding: 1rem;
@@ -45,17 +45,17 @@ next:hover {
     border-radius: 0.9rem;
 }
 
-answerList{
+answerList {
     display: grid;
     width: 50vh;
     margin: 2%;
 }
 
-answerList > .answer {
+answerList>.answer {
     cursor: grabbing;
 }
 
-.answer{
+.answer {
     width: 27.5rem;
     padding: 2%;
     font-size: 1.4rem;
@@ -64,12 +64,12 @@ answerList > .answer {
     color: #262626;
 }
 
-.answerBorderLeft{
+.answerBorderLeft {
     border-left: 1px solid #1E3A8A;
     border-left-width: thick;
 }
 
-.message{
+.message {
     display: block;
     margin: 5%;
     border: 1px solid #075985;
@@ -81,7 +81,7 @@ answerList > .answer {
     color: #d1d1d1;
 }
 
-button{
+button {
     height: 7vh;
     font-size: 100%;
     border: none;
@@ -103,7 +103,7 @@ button:hover {
     text-align: center;
     border-radius: 4px;
     padding: 2%;
-    border-bottom: 2px dotted #075985; 
+    border-bottom: 2px dotted #075985;
     padding-block: 0px;
     padding-inline: 0px;
 }
@@ -116,50 +116,50 @@ button:hover {
     margin-bottom: 5%;
 }
 
-.successChoiceElement{
+.successChoiceElement {
     color: #16A34A;
     border-left-color: #6EE7B7;
     border-width: thick;
 }
 
-.successInputElement{
+.successInputElement {
     color: #16A34A;
     border-color: #16A34A;
 }
 
-.successBg{
+.successBg {
     color: #6EE7B7;
     border: 1px solid #6EE7B7;
     background-color: #3c8351;
 }
 
-.successBox{
+.successBox {
     border: 0.2rem solid #6EE7B7;
 }
 
-.failureChoiceElement{
+.failureChoiceElement {
     color: #a31616;
     border-left-color: #e76e6e;
     border-width: thick;
 }
 
-.failureInputElement{
+.failureInputElement {
     color: #a31616;
     border-color: #a31616;
 }
 
-.failureBg{
+.failureBg {
     color: #e76e6e;
     border: 1px solid #e76e6e;
     background-color: #833c3c;
 }
 
-.failureBox{
+.failureBox {
     border: 0.2rem solid #e76e6e;
 }
 
-@media screen and (max-width: 980px){
-    #container{
+@media screen and (max-width: 980px) {
+    #container {
         position: fixed;
         margin: 0;
         top: 1px;
@@ -168,27 +168,27 @@ button:hover {
         justify-content: inherit;
     }
 
-    .box{
+    .box {
         width: 90%;
     }
 
-    question{
+    question {
         width: 36vh;
     }
 
-    answerList{
+    answerList {
         width: 38vh;
     }
 
-    .message{
+    .message {
         height: 29%;
     }
 
-    .answer{
+    .answer {
         width: 100%;
     }
 
-    .inputfield{
+    .inputfield {
         margin-bottom: 45%;
     }
-  }
+}
